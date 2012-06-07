@@ -1,0 +1,44 @@
+{
+    "productId": "1",
+    "userId": "Television",
+    "rating": {
+        "1": "10",
+        "2": "16",
+        "3": "21",
+        "4": "40",
+        "5": "0",
+        "average": "3"
+    },
+    "comments": [ {
+        "comment": {
+            "rating": "3",
+            "description": "comment description",
+            "user": "John",
+            "commentDate": "2011-20-21 00:00:00"
+        },
+        "comment": {
+            "rating": "4",
+            "description": "comment description",
+            "user": "Sam",
+            "commentDate": "2011-20-21 00:00:00"
+        },
+        "comment": {
+            "rating": "1",
+            "description": "comment description",
+            "user": "Anonymous",
+            "commentDate": "2011-20-21 00:00:00"
+        },
+        "comment": {
+            "rating": "2",
+            "description": "comment description",
+            "user": "Jeb",
+            "commentDate": "2011-20-21 00:00:00"
+        },
+        "comment": {
+            "rating": "1",
+            "description": "comment description",
+            "user": "Joe",
+            "commentDate": "2011-20-21 00:00:00"
+        }
+     } ]
+}

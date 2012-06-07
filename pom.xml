@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>com.photon.phresco</groupId>
+    <artifactId>PHR_NodeJSWebService</artifactId>
+    <name>PHR_NodeJSWebService</name>
+    <version>1.0.0</version>
+    <build>
+        <sourceDirectory>source</sourceDirectory>
+        <plugins>
+            <plugin>
+                <groupId>com.photon.phresco.plugins</groupId>
+                <artifactId>nodejs-maven-plugin</artifactId>
+                <version>1.1.17000</version>
+                <extensions>true</extensions>
+            </plugin>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>exec-maven-plugin</artifactId>
+                <version>1.1.1</version>
+                <executions>
+                    <execution>
+                        <phase>test</phase>
+                        <goals>
+                            <goal>exec</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <executable xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">node</executable>
+                    <workingDirectory xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">./</workingDirectory>
+                    <arguments xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                        <argument>source/test/AllTest.js</argument>
+                   </arguments>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+    <properties>
+        <sonar.language xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">js</sonar.language>
+        <sonar.dynamicAnalysis xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">true</sonar.dynamicAnalysis>
+        <sonar.exclusions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">**/node_modules/**</sonar.exclusions>
+    </properties>
+</project>
