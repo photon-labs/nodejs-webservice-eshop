@@ -5,6 +5,10 @@
     <artifactId>PHR_NodeJSWebService</artifactId>
     <name>PHR_NodeJSWebService</name>
     <version>1.0.0</version>
+	<inceptionYear>1999</inceptionYear>
+    <organization>
+        <name>Photon Infotech Inc.</name>
+    </organization>
     <build>
         <sourceDirectory>source</sourceDirectory>
         <plugins>
@@ -32,6 +36,22 @@
                     <arguments xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
                         <argument>source/test/AllTest.js</argument>
                    </arguments>
+                </configuration>
+            </plugin>
+			<plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>license-maven-plugin</artifactId>
+                <version>1.1</version>
+                <configuration>
+                   <verbose>false</verbose>
+                   <processStartTag>###</processStartTag>
+                   <processEndTag>###</processEndTag>
+                  <!-- <sectionDelimiter>" "</sectionDelimiter> -->
+                   <licenseName>apache_v2</licenseName>
+				   <roots>
+				   <root>source</root>
+				   <root>test</root>
+				   </roots>
                 </configuration>
             </plugin>
         </plugins>
