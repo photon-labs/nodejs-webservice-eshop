@@ -54,7 +54,7 @@ public class Constants {
 	
 	public static  String MAC_OS = "Mac";
 	
-	public static String DIRECTORY="/test"+"/chromedriver";
+	public static String DIRECTORY="/chromedriver";
 	
 	public static String WINDOWS_DIRECTORY=DIRECTORY+"/windows";
 	
