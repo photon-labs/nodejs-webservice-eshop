@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<environment>
+	<server>
+		<server.context.restapi>/rest/api</server.context.restapi>
+		<server.context.config>/config</server.context.config>
+		<server.context.categories>/categories</server.context.categories>
+		<server.context.products>/products</server.context.products>
+		<server.context.category1>/categories/1</server.context.category1>
+		<server.context.category2>/categories/2</server.context.category2>
+		<server.context.category3>/categories/3</server.context.category3>
+		<server.context.productreview>/products/1/reviews</server.context.productreview>
+		<server.context.searchmobile>/products/search/mobile</server.context.searchmobile>
+		<server.context.searchcomputer>/products/search/computer</server.context.searchcomputer>
+		<server.context.newproducts>/newproducts</server.context.newproducts>
+		<server.context.specialproducts>/specialproducts</server.context.specialproducts>
+	</server>
+			
+	<CapturedStrings>
+		<stringCaptureSpecialProductsUrl>"Apple\n13.3\" MacBook Air Notebook Computer\n\n"</stringCaptureSpecialProductsUrl>
+		<stringCaptureSearchMobileUrl> "Motorola DEFY "</stringCaptureSearchMobileUrl>
+		<stringCaptureSearchComputerUrl>"LED3DTV4086 40\" Class 3D LED TV w/ 2 Pairs of 3D Glasses"</stringCaptureSearchComputerUrl>
+		<stringCaptureProductReviewUrl>comment</stringCaptureProductReviewUrl>
+		<stringCaptureConfigUrl>featureLayout</stringCaptureConfigUrl>
+		<stringCaptureEshopUrl>NodeJS WebServices</stringCaptureEshopUrl>
+		<stringCaptureProductsUrl>"LED3DTV4086 40\" Class 3D LED TV w/ 2 Pairs of 3D Glasses"</stringCaptureProductsUrl>
+		<stringCaptureCategoriesUrl>"Television"</stringCaptureCategoriesUrl>
+		<stringCaptureCategory1Url>"LG Electronics 42PW350 3D Plasma HDTV "</stringCaptureCategory1Url>
+		<stringCaptureCategory2Url>"Apple\n11.6\" MacBook Air Notebook Computer\n"</stringCaptureCategory2Url>
+		<stringCaptureCategory3Url>"Apple iPhone 4 "</stringCaptureCategory3Url>
+	</CapturedStrings>
+</environment>

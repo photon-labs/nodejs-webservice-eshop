@@ -40,6 +40,7 @@ public class ReadXMLFile {
 	private static Element eElement;
 	private Log log = LogFactory.getLog(getClass());
 	private static final String phrsc = "./src/main/resources/phresco-env-config.Xml";
+	private static final String nodejs = "./src/main/resources/NodejsData.xml";
 	
 	public ReadXMLFile() throws ScreenException {
 		log.info("@ReadXMLFile Constructor::loading *****PhrescoUIConstants******");
@@ -74,6 +75,9 @@ public class ReadXMLFile {
 		}
 	}
 	
+	public void NodejsData() throws ScreenException {
+    	loadPhrescoConstansts(nodejs);
+	}
 	
 	
 	public String getValue(String elementName) {

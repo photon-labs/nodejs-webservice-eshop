@@ -28,10 +28,12 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 
 import com.photon.phresco.uiconstants.PhrescoNodejsUiConstants;
+import com.photon.phresco.uiconstants.PhrescoUiConstants;
 
 public class TestJson  {
 
-	private PhrescoNodejsUiConstants phrsc;
+	private PhrescoUiConstants phrsc;
+	private PhrescoNodejsUiConstants nodejs;
 	private static String jsonStr;
 	private static JSONObject json;
 	private static JSONArray categoryJsonObj;
@@ -56,9 +58,10 @@ public class TestJson  {
 	public void testCategories() throws Exception {
 		response = new SearchResponse();
 		try {
-			phrsc = new PhrescoNodejsUiConstants();
+			phrsc = new PhrescoUiConstants();
+    		nodejs = new PhrescoNodejsUiConstants();
 			jObject = response.getCategoryJSONObject(phrsc.PROTOCOL + "://"
-					+ phrsc.HOST + ":" + phrsc.PORT + "/" + phrsc.CONTEXT_ESHOP+phrsc.CONTEXT_REST_API+phrsc.CONTEXT_CATEGORIES);
+					+ phrsc.HOST + ":" + phrsc.PORT + "/" + phrsc.CONTEXT +nodejs.CONTEXT_REST_API+nodejs.CONTEXT_CATEGORIES);
 		} catch (IOException e) {
 
 			e.printStackTrace();
@@ -87,9 +90,10 @@ public class TestJson  {
 	public void testCategory1( ) throws Exception {
 		response = new SearchResponse();
 		try {
-			phrsc = new PhrescoNodejsUiConstants();
+			phrsc = new PhrescoUiConstants();
+    		nodejs = new PhrescoNodejsUiConstants();
 			jObject = response.getCategoryJSONObject(phrsc.PROTOCOL + "://"
-					+ phrsc.HOST + ":" + phrsc.PORT + "/" + phrsc. CONTEXT_ESHOP+ phrsc.CONTEXT_REST_API+phrsc. CONTEXT_CATEGORY1);
+					+ phrsc.HOST + ":" + phrsc.PORT + "/" + phrsc. CONTEXT+ nodejs.CONTEXT_REST_API+nodejs. CONTEXT_CATEGORY1);
 		} catch (IOException e) {
 
 			e.printStackTrace();
@@ -111,9 +115,10 @@ public class TestJson  {
 	public void testCategory2() throws Exception {
 		response = new SearchResponse();
 		try {
-			phrsc = new PhrescoNodejsUiConstants();
+			phrsc = new PhrescoUiConstants();
+    		nodejs = new PhrescoNodejsUiConstants();
 			jObject = response.getCategoryJSONObject(phrsc.PROTOCOL + "://"
-					+ phrsc.HOST + ":" + phrsc.PORT + "/" + phrsc. CONTEXT_ESHOP+ phrsc.CONTEXT_REST_API+phrsc. CONTEXT_CATEGORY2);
+					+ phrsc.HOST + ":" + phrsc.PORT + "/" + phrsc. CONTEXT+ nodejs.CONTEXT_REST_API+nodejs. CONTEXT_CATEGORY2);
 		} catch (IOException e) {
 
 			e.printStackTrace();
@@ -135,9 +140,10 @@ public class TestJson  {
 	public void testCategory3() throws Exception {
 		response = new SearchResponse();
 		try {
-			phrsc = new PhrescoNodejsUiConstants();
+			phrsc = new PhrescoUiConstants();
+    		nodejs = new PhrescoNodejsUiConstants();
 			jObject = response.getCategoryJSONObject(phrsc.PROTOCOL + "://"
-					+ phrsc.HOST + ":" + phrsc.PORT + "/" + phrsc.CONTEXT_ESHOP+ phrsc.CONTEXT_REST_API+phrsc. CONTEXT_CATEGORY3);
+					+ phrsc.HOST + ":" + phrsc.PORT + "/" + phrsc.CONTEXT+ nodejs.CONTEXT_REST_API+nodejs. CONTEXT_CATEGORY3);
 		} catch (IOException e) {
 
 			e.printStackTrace();
@@ -159,9 +165,10 @@ public class TestJson  {
 	public void testNewProducts() throws Exception {
 		response = new SearchResponse();
 		try {
-			phrsc = new PhrescoNodejsUiConstants();
+			phrsc = new PhrescoUiConstants();
+    		nodejs = new PhrescoNodejsUiConstants();
 			jObject = response.getCategoryJSONObject(phrsc.PROTOCOL + "://"
-					+ phrsc.HOST + ":" + phrsc.PORT + "/" +  phrsc.CONTEXT_ESHOP + phrsc.CONTEXT_REST_API + phrsc.CONTEXT_NEWPRODUCTS);
+					+ phrsc.HOST + ":" + phrsc.PORT + "/" +  phrsc.CONTEXT + nodejs.CONTEXT_REST_API + nodejs.CONTEXT_NEWPRODUCTS);
 		} catch (IOException e) {
 
 			e.printStackTrace();
@@ -179,10 +186,10 @@ public class TestJson  {
 
 		response = new SearchResponse();
 		try {
-			phrsc = new PhrescoNodejsUiConstants();
-
+			phrsc = new PhrescoUiConstants();
+    		nodejs = new PhrescoNodejsUiConstants();
 			jObject = response.getCategoryJSONObject(phrsc.PROTOCOL + "://"
-					+ phrsc.HOST + ":" + phrsc.PORT + "/" + phrsc.CONTEXT_ESHOP + phrsc.CONTEXT_REST_API + phrsc.CONTEXT_SEARCHMOBILE);
+					+ phrsc.HOST + ":" + phrsc.PORT + "/" + phrsc.CONTEXT + nodejs.CONTEXT_REST_API + nodejs.CONTEXT_SEARCHMOBILE);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
@@ -200,9 +207,10 @@ public class TestJson  {
 
 		response = new SearchResponse();
 		try {
-			phrsc = new PhrescoNodejsUiConstants();
+			phrsc = new PhrescoUiConstants();
+    		nodejs = new PhrescoNodejsUiConstants();
 			jObject = response.getCategoryJSONObject(phrsc.PROTOCOL + "://"
-					+ phrsc.HOST + ":" + phrsc.PORT + "/" + phrsc.CONTEXT_ESHOP + phrsc.CONTEXT_REST_API +  phrsc.CONTEXT_SEARCHCOUMPUTER);
+					+ phrsc.HOST + ":" + phrsc.PORT + "/" + phrsc.CONTEXT + nodejs.CONTEXT_REST_API +  nodejs.CONTEXT_SEARCHCOUMPUTER);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
@@ -217,9 +225,10 @@ public class TestJson  {
 	public void Products() throws Exception {
 		response = new SearchResponse();
 		try {
-			phrsc = new PhrescoNodejsUiConstants();
+			phrsc = new PhrescoUiConstants();
+    		nodejs = new PhrescoNodejsUiConstants();
 			jObject = response.getCategoryJSONObject(phrsc.PROTOCOL + "://"
-					+ phrsc.HOST + ":" + phrsc.PORT + "/" + phrsc.CONTEXT_ESHOP+phrsc.CONTEXT_REST_API+phrsc.CONTEXT_PRODUCTS);
+					+ phrsc.HOST + ":" + phrsc.PORT + "/" + phrsc.CONTEXT+nodejs.CONTEXT_REST_API+nodejs.CONTEXT_PRODUCTS);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
@@ -241,9 +250,10 @@ public class TestJson  {
 	public void SpecialProducts() throws Exception {
 		response = new SearchResponse();
 		try {
-			phrsc = new PhrescoNodejsUiConstants();
+			phrsc = new PhrescoUiConstants();
+    		nodejs = new PhrescoNodejsUiConstants();
 			jObject = response.getCategoryJSONObject(phrsc.PROTOCOL + "://"
-					+ phrsc.HOST + ":" + phrsc.PORT + "/" + phrsc.CONTEXT_ESHOP+phrsc.CONTEXT_REST_API+phrsc.CONTEXT_SPECIAL_PRODUCTS);
+					+ phrsc.HOST + ":" + phrsc.PORT + "/" + phrsc.CONTEXT+nodejs.CONTEXT_REST_API+nodejs.CONTEXT_SPECIAL_PRODUCTS);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
