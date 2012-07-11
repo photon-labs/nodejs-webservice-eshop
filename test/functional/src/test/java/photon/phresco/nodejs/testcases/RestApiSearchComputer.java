@@ -34,13 +34,15 @@ import org.openqa.selenium.server.SeleniumServer;
 import com.photon.phresco.Screens.TestJson;
 import com.photon.phresco.Screens.WelcomeScreen;
 import com.photon.phresco.uiconstants.PhrescoNodejsUiConstants;
+import com.photon.phresco.uiconstants.PhrescoUiConstants;
 import com.thoughtworks.selenium.Selenium;
 
 public class RestApiSearchComputer extends TestCase {
 	
 
 	private SeleniumServer serv;
-	private PhrescoNodejsUiConstants phrsc;
+	private PhrescoUiConstants phrsc;
+	private PhrescoNodejsUiConstants nodejs;
 	private Selenium selenium;
 	private int SELENIUM_PORT;
 	private String browserAppends;
@@ -74,12 +76,13 @@ public class RestApiSearchComputer extends TestCase {
 
            	public void setUp() throws Exception {
            		
-           		phrsc = new PhrescoNodejsUiConstants();
+           		phrsc = new PhrescoUiConstants();
+        		nodejs = new PhrescoNodejsUiConstants();
     			serverURL = phrsc.PROTOCOL + "://"
     					+ phrsc.HOST + ":"
     					+ phrsc.PORT + "/";
     			browserAppends = "*" + phrsc.BROWSER;
-    			contextName = phrsc.CONTEXT_ESHOP + phrsc.CONTEXT_REST_API +  phrsc.CONTEXT_SEARCHCOUMPUTER;
+    			contextName = phrsc.CONTEXT + nodejs.CONTEXT_REST_API +  nodejs.CONTEXT_SEARCHCOUMPUTER;
            	}
 
            	public void tearDown() {

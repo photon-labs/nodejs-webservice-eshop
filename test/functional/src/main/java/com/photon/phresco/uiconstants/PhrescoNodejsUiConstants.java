@@ -26,9 +26,8 @@ public class PhrescoNodejsUiConstants {
 	
 	private ReadXMLFile readXml;
 
-	public String PROTOCOL = "protocol";
-	public String SERVER_PORT = "selenium.port";
-	public String CONTEXT_ESHOP = "context";
+	
+	//public String CONTEXT_ESHOP = "context";
 	public String CONTEXT_REST_API="server.context.restapi";
 	public String CONTEXT_CONFIG= "server.context.config";
 	public String CONTEXT_CATEGORIES= "server.context.categories";
@@ -48,11 +47,7 @@ public class PhrescoNodejsUiConstants {
 	public String PRODUCTREVIEW="stringCaptureProductReviewUrl";
 	
 	
-	public String SELENIUM_HOST = "selenium.host";
-	public String HOST = "host";
-	public String PORT = "port";
-	public String BROWSER = "Browser";
-	public String SPEED = "speed";
+	
 	public String ESHOP = "stringCaptureEshopUrl";
 	public String CONFIG = "stringCaptureConfigUrl";
 	public String CATEGORIES= "stringCaptureCategoriesUrl";
@@ -60,16 +55,16 @@ public class PhrescoNodejsUiConstants {
 	public String CATEGORY1= "stringCaptureCategory1Url";
 	public String CATEGORY2= "stringCaptureCategory2Url";
 	public String CATEGORY3= "stringCaptureCategory3Url";
-
 	
-
-
+	
 
 	
 
 	public PhrescoNodejsUiConstants() {
 		try {
 		    readXml = new ReadXMLFile();
+		    readXml.NodejsData();
+		    System.out.println("*********Reading Data from NodejsData**********");
 			Field[] arrayOfField1 = super.getClass().getFields();
 			Field[] arrayOfField2 = arrayOfField1;
 			int i = arrayOfField2.length;

@@ -31,22 +31,20 @@ import org.apache.commons.logging.LogFactory;
 import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.server.SeleniumServer;
-//import org.testng.annotations.BeforeTest;
-
 import com.photon.phresco.Screens.TestJson;
 import com.photon.phresco.Screens.WelcomeScreen;
 import com.photon.phresco.uiconstants.PhrescoNodejsUiConstants;
+import com.photon.phresco.uiconstants.PhrescoUiConstants;
 import com.thoughtworks.selenium.Selenium;
 
 public class NodejsEshop extends TestCase {
 	
 
 	private SeleniumServer serv;
-	private PhrescoNodejsUiConstants phrsc;
+	private PhrescoUiConstants phrsc;
 	private Selenium selenium;
 	private int SELENIUM_PORT;
 	private String browserAppends;
-	//private LoginScreen loginObject;
 	private Log log = LogFactory.getLog(getClass());
 	private String contextName;
 	WelcomeScreen wel;
@@ -65,7 +63,6 @@ public class NodejsEshop extends TestCase {
 					browserAppends, serverURL, phrsc.SPEED,
 					contextName);
 			assertNotNull(wel);
-			//Thread.sleep(10000);
 			methodName = Thread.currentThread().getStackTrace()[1].getMethodName();
 			System.out.println("methodName = " + methodName);
 			wel.nodejsEshop(methodName);
@@ -75,16 +72,17 @@ public class NodejsEshop extends TestCase {
     	}
 	}
 
-	
+	@Override
 	public void setUp() throws Exception {
 
-		phrsc = new PhrescoNodejsUiConstants();
+		phrsc = new PhrescoUiConstants();
+		//nodejs = new PhrescoNodejsUiConstants();
 		serverURL = phrsc.PROTOCOL + "://"
 				+ phrsc.HOST + ":"
 				+ phrsc.PORT + "/";
 		
 		browserAppends = "*" + phrsc.BROWSER;
-		contextName = phrsc.CONTEXT_ESHOP;
+		contextName = phrsc.CONTEXT;
 	}
 
 	public void tearDown() {
