@@ -121,7 +121,7 @@ public class BaseScreen {
 	public void closeBrowser() {
 		log.info("-------------***BROWSER CLOSING***--------------");
 		if (driver != null) {
-			//driver.quit();
+			driver.quit();
 			if (chromeService != null) {
 				chromeService.stop();
 			}
