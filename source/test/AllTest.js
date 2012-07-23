@@ -4,7 +4,7 @@
  * %%
  * Copyright (C) 1999 - 2012 Photon Infotech Inc.
  * %%
- * Licensed under the Apache License, Version 2.0 (the "License");
+ * Licensed under the Apache License, Version 2.0 (the "License")
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  * 
@@ -29,8 +29,8 @@ var opts = {
     "bold_suffix": "\u001B[22m",
     "assertion_prefix": "\u001B[35m",
     "assertion_suffix": "\u001B[39m"
-}
+};
 
-opts.output = "do_not_checkin/target/surefire";
+opts.output = "target/surefire";
 
 reporter.run(['source/test/eshop'], opts);

@@ -36,7 +36,7 @@ module.exports = function(sequelize, DataTypes) {
 		od_payment_address1: { type: sequelize.STRING},
 		od_payment_address2: { type: sequelize.STRING},
 		od_payment_city: { type: sequelize.STRING},
-		od_payment_postal_code: { type: sequelize.INTEGER}
+		od_payment_postal_code: { type: sequelize.INTEGER};
     
   });
    return order;
