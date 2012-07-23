@@ -4,7 +4,7 @@
  * %%
  * Copyright (C) 1999 - 2012 Photon Infotech Inc.
  * %%
- * Licensed under the Apache License, Version 2.0 (the "License");
+ * Licensed under the Apache License, Version 2.0 (the "License")
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  * 
@@ -30,7 +30,7 @@ var db = require('./lib/eshop/db');
 var serverConfig = utility.getConfigByName(currentEnv, 'Server');
 require('dns').lookup(require('os').hostname(), function (err, address, fam) {
 	var ipaddress = address;
-	if (ipaddress == serverConfig.host || serverConfig.host == "localhost") {
+	if (ipaddress === serverConfig.host || serverConfig.host === "localhost") {
 		var app = require('express').createServer();
 		configure.appConfigure(app);
 		services.expose(app, serverConfig);
@@ -42,4 +42,4 @@ require('dns').lookup(require('os').hostname(), function (err, address, fam) {
 		  console.log("Server startup failed");
 		  console.log("Invaldid IP Address is Configured");		
 	}
-})
+});

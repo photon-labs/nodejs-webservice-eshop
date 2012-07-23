@@ -24,13 +24,13 @@ module.exports = function(sequelize, DataTypes) {
         cat_image: { type: sequelize.STRING},
         cat_details_image: { type: sequelize.STRING},
         cat_parent_id: { type: sequelize.INTEGER},
-        cat_description: { type: sequelize.STRING}
+        cat_description: { type: sequelize.STRING};
     }, {
       classMethods: {
-        getProduct: function(){ return this.attributes.id }
+        getProduct: function(){ return this.attributes.id; }
       },
       instanceMethods: {
-        getProducts: function() { return this }
+        getProducts: function() { return this; }
       }
-  })
+  });
 }

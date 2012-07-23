@@ -4,7 +4,7 @@
  * %%
  * Copyright (C) 1999 - 2012 Photon Infotech Inc.
  * %%
- * Licensed under the Apache License, Version 2.0 (the "License");
+ * Licensed under the Apache License, Version 2.0 (the "License")
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  * 
@@ -22,18 +22,14 @@ var dbconfigure = require('./dbconfigure');
 var utility = require('../utility');
 var Sequelize = require("sequelize");
 
-//console.info('Host = ', utility.getDBHost());
 var sequelize = dbconfigure.getSequelize();
-var EshopCategory = sequelize.import(__dirname + "/models/Category")
-var Product = sequelize.import(__dirname + "/models/Product")
-var Review = sequelize.import(__dirname + "/models/Review")
-var User = sequelize.import(__dirname + "/models/User")
-var Order = sequelize.import(__dirname + "/models/Order")
-var Orderitem = sequelize.import(__dirname + "/models/Orderitem")
+var EshopCategory = sequelize.import(__dirname + "/models/Category");
+var Product = sequelize.import(__dirname + "/models/Product");
+var Review = sequelize.import(__dirname + "/models/Review");
+var User = sequelize.import(__dirname + "/models/User");
+var Order = sequelize.import(__dirname + "/models/Order");
+var Orderitem = sequelize.import(__dirname + "/models/Orderitem");
 
-
-//EshopCategory.hasMany(Product, { foreignKey: 'cat_id', as: "Products" });
-//User.hasMany(Review,{foreignKey: 'user_id', as: "Reviews"});
 EshopCategory.hasMany(Product, { foreignKey: 'cat_id', as: "Products" });
 
 
@@ -54,8 +50,8 @@ exports.getCategories = function(req, res) {
             categoriesObjs[i] = categories[i];
         }
     }).on('success', function() {
-         var chainer = new Sequelize.Utils.QueryChainer
-         var productCountArrray = new Array()
+         var chainer = new Sequelize.Utils.QueryChainer;
+         var productCountArrray = new Array();
           for (var i = 0; i < categoriesIdList.length; i++) {
               var categoryId = categoriesObjs[i].id;
               var j = 0;
@@ -69,13 +65,13 @@ exports.getCategories = function(req, res) {
                         category.productCount = productCount;
                         categoriesArray[j] = category;
                         j++;
-                    })
+                    });
                 )
               chainer.run().on('success', function(){
                 categoryRecords.category = categoriesArray;                              
                 jsonStr = JSON.stringify(categoryRecords, null, '\t'); 
                 utility.sendJSONResponse(req, res, jsonStr);
-            })
+            });
           }
         }).on('failure', function(err){
                 exception.executeException(0, '1000', err, res);   
@@ -109,7 +105,7 @@ exports.getProducts = function(req, res, categoryId) {
                 productsArray[i] = product;
               }
             }).on('success', function() {
-                var chainer = new Sequelize.Utils.QueryChainer
+                var chainer = new Sequelize.Utils.QueryChainer;
                 var ratingIdList = new Array();
                 var reviewsObjs = new Array();
                 var reviewArray = new Array();
@@ -130,7 +126,7 @@ exports.getProducts = function(req, res, categoryId) {
                             var average = (totalCount / 5);
                             ratingArray[j] = Math.round(average);
                             j++
-                        })
+                        });
                     )
                     chainer.run().on('success', function() {
                         var avgRating = {};
@@ -140,11 +136,10 @@ exports.getProducts = function(req, res, categoryId) {
                             product.rating = ratingArray[p1];
                             productsArray[p1] = product;
                         }
-                        //console.info(productsArray);
-                        productsRecords.product = productsArray
+                        productsRecords.product = productsArray;
                         jsonStr = JSON.stringify(productsRecords, null, '\t'); 
                         utility.sendJSONResponse(req, res, jsonStr);
-                    })
+                    });
                 }
             }).on('failure', function(err){
                 exception.executeException(0, '1000', err, res);   
@@ -202,7 +197,7 @@ exports.getAllProducts = function(req, res) {
                             var average = (totalCount / 5);
                             ratingArray[j] = Math.round(average);
                             j++
-                        })
+                        });
                     )
                     chainer.run().on('success', function() {
                         var avgRating = {};
@@ -212,11 +207,10 @@ exports.getAllProducts = function(req, res) {
                             product.rating = ratingArray[p1];
                             productsArray[p1] = product;
                         }
-                        //console.info(productsArray);
-                        productsRecords.product = productsArray
+                        productsRecords.product = productsArray;
                         jsonStr = JSON.stringify(productsRecords, null, '\t');  
                         utility.sendJSONResponse(req, res, jsonStr);
-                    })
+                    });
                 }
             }).on('failure', function(err){
                 exception.executeException(0, '1000', err, res);   
@@ -267,7 +261,7 @@ exports.getNewProducts = function(req, res) {
                             var average = (totalCount / 5);
                             ratingArray[j] = Math.round(average);
                             j++
-                        })
+                        });
                     )
                     chainer.run().on('success', function() {
                         var avgRating = {};
@@ -277,11 +271,10 @@ exports.getNewProducts = function(req, res) {
                             product.rating = ratingArray[p1];
                             productsArray[p1] = product;
                         }
-                        //console.info(productsArray);
-                        productsRecords.product = productsArray
+                        productsRecords.product = productsArray;
                         jsonStr = JSON.stringify(productsRecords, null, '\t');  
                         utility.sendJSONResponse(req, res, jsonStr);
-                    })
+                    });
                 }
             }).on('failure', function(err){
                 exception.executeException(0, '1000', err, res);   
@@ -331,7 +324,7 @@ exports.getSpecialProducts = function(req, res) {
                             var average = (totalCount / 5);
                             ratingArray[j] = Math.round(average);
                             j++
-                        })
+                        });
                     )
                     chainer.run().on('success', function() {
                         var avgRating = {};
@@ -341,11 +334,11 @@ exports.getSpecialProducts = function(req, res) {
                             product.rating = ratingArray[p1];
                             productsArray[p1] = product;
                         }
-                        //console.info(productsArray);
-                        productsRecords.product = productsArray
+
+                        productsRecords.product = productsArray;
                         jsonStr = JSON.stringify(productsRecords, null, '\t');  
                         utility.sendJSONResponse(req, res, jsonStr);
-                    })
+                    });
                 }
             }).on('failure', function(err){
                 exception.executeException(0, '1000', err, res);   
@@ -380,7 +373,6 @@ exports.getProductdetails = function(req, res, productId) {
 		} catch (e) {
 			exception.executeException(0, '1000', "failed during product details", res);
 	  	}
-        //res.json(jsonStr);
     }).on('success', function() {
         var chainer = new Sequelize.Utils.QueryChainer
         var ratingIdList = new Array();
@@ -400,7 +392,7 @@ exports.getProductdetails = function(req, res, productId) {
 					totalCount = (totalCount > 25)? (totalCount /2) : totalCount;
                     var average = (totalCount / 5);
                     rating = Math.round(average);
-                })
+                });
             )
             chainer.run().on('success', function() {
                 var product;
@@ -414,8 +406,8 @@ exports.getProductdetails = function(req, res, productId) {
                 } else {
                     var details = {"TV Type": "LCD", "Screen Size": "32' Inches", "Screen Ratio": "16:9", "TV Definition": "HDTV"};
                     product.details = details;
-                    //console.info(productsArray)
-                    productsRecords.product = productsArray
+
+                    productsRecords.product = productsArray;
                     jsonStr = JSON.stringify(productsRecords, null, '\t'); 
                     utility.sendJSONResponse(req, res, jsonStr);
                 }
@@ -453,15 +445,15 @@ exports.getSearchdetails = function(req, res, searchword) {
 			  }
 		}
 		else {
-			//exception.executeException(0, '2000', "no item found", res);
-			var message = {}
+
+			var message = {};
 			message.successMessage = "no item found";
 			var searchMessage = JSON.stringify(message, null, '\t')
             utility.sendJSONResponse(req, res, searchMessage);
 	  	}
-        //res.json(jsonStr);
-    }).on('success', function() {
-                var chainer = new Sequelize.Utils.QueryChainer
+
+		}).on('success', function() {
+                var chainer = new Sequelize.Utils.QueryChainer;
                 var ratingIdList = new Array();
                 var reviewsObjs = new Array();
                 var reviewArray = new Array();
@@ -482,7 +474,7 @@ exports.getSearchdetails = function(req, res, searchword) {
                             var average = (totalCount / 5);
                             ratingArray[j] = Math.round(average);
                             j++
-                        })
+                        });
                     )
                     chainer.run().on('success', function() {
                         var avgRating = {};
@@ -492,15 +484,15 @@ exports.getSearchdetails = function(req, res, searchword) {
                             product.rating = ratingArray[p1];
                             productsArray[p1] = product;
                         }
-                        //console.info(productsArray);
-                        productsRecords.product = productsArray
+                        
+                        productsRecords.product = productsArray;
                         jsonStr = JSON.stringify(productsRecords, null, '\t');  
                         utility.sendJSONResponse(req, res, jsonStr);
-                    })
+                    });
                 }
             }).on('failure', function(err){
                 exception.executeException(0, '1000', err, res);   
-            })
+            });
 }
     
 exports.getReviews = function(req, res, productId) {
@@ -524,14 +516,7 @@ exports.getReviews = function(req, res, productId) {
             }
         } else {
             var commentsArray = new Array();
-            //var commentJson = {};
-			/*commentJson.rating = ""
-            commentJson.comment = "";
-			commentJson.userid = "";
-			commentJson.commentDate = "";
-            commentJson.user = "";
-            commentsArray[0]= "";
-            var comments = {};*/
+
 			var ratingArray = new Array();
 			 for (var r = 0; r < 5; r++) {
 				var ratingSeries = {};
@@ -546,8 +531,8 @@ exports.getReviews = function(req, res, productId) {
 			review.average = 0;
             review.comments = commentsArray;
             reviewRecords.review = review;
-            //exception.executeException(0, '1001', 'Product reviews is not available', res);   
-            var reviewJson = JSON.stringify(reviewRecords, null, '\t')
+
+            var reviewJson = JSON.stringify(reviewRecords, null, '\t');
             utility.sendJSONResponse(req, res, reviewJson);
        }
     }).on('success', function() {
@@ -568,15 +553,15 @@ exports.getReviews = function(req, res, productId) {
                     var ratingKeyValue = {};
                     ratingKeyValue.key  = k;
                     ratingKeyValue.value  = ratingCount;
-                    //ratingSeries="{ keys :"+ k + ",values :" + ratingCount +"}";
+
                     totalCount += ratingCount;
                     ratingArray[j] = ratingKeyValue;
                     j++  
                     k++// display rating id
-                })
+                });
             )
             chainer.run().on('success', function() {
-                    var commentsChainer = new Sequelize.Utils.QueryChainer
+                    var commentsChainer = new Sequelize.Utils.QueryChainer;
                     var commentsArray = new Array();
                     var ratings = {};
                     ratings.rating = ratingArray;
@@ -604,9 +589,7 @@ exports.getReviews = function(req, res, productId) {
                                 currentHours = ( currentHours >= 10 ) ? currentHours : "0"+currentHours;
                                 currentMinutes = ( currentMinutes >= 10) ? currentMinutes : "0"+ currentMinutes;
                                 currentSeconds = ( currentSeconds >= 10) ? currentSeconds : "0"+ currentSeconds;
-                                //console.info(currentYear+'-'+currentMonth+'-'+currentDate+' '+currentHours+':'+currentMinutes+':'+currentSeconds);
                                 comment.commentDate = currentYear+'-'+currentMonth+'-'+currentDate+' '+currentHours+':'+currentMinutes+':'+currentSeconds;
-                                //comment.commentDate = dateFormat(reviewRecord[m].comment_date, "yyyy-mm-dd HH:MM:ss")
                                 commentsArray[m] = comment;
                             }
                         }).on('success', function(err) {
@@ -614,7 +597,6 @@ exports.getReviews = function(req, res, productId) {
                            for (var z = 0; z < userIdList.length; z++){
                                userId.push(userIdList[z]);
                            }
-                           //var users = {};
                             User.findAll({where: {id: userId }}).on('success', function(usersdata) {
                                 for (var u = 0; u < usersdata.length; u++){
                                     var username = usersdata[u].first_name + ' ' + usersdata[u].last_name;
@@ -627,20 +609,20 @@ exports.getReviews = function(req, res, productId) {
                                 }
                                 var comments = {};
                                 review.comments = commentsArray;
-                                reviewRecords.review = review
-                                var reviewJson = JSON.stringify(reviewRecords, null, '\t')
+                                reviewRecords.review = review;
+                                var reviewJson = JSON.stringify(reviewRecords, null, '\t');
                                 utility.sendJSONResponse(req, res, reviewJson);
-                            })
-                        })
+                            });
+                        });
                     )
                 }).on('failure', function(err) {
                     exception.executeException(0, '1000', err, res);
-                })
+                });
         }
 
     }).on('failure', function(err) {
-        exception.executeException(0, '1000', err, res);
-    })
+			exception.executeException(0, '1000', err, res);
+		});
 	}
 	else {
 		var commentsArray = new Array();
@@ -651,43 +633,32 @@ exports.getReviews = function(req, res, productId) {
 		var comments = {};
 		review.comments = commentsArray;
 		reviewRecords.review = review;
-		//exception.executeException(0, '1001', 'Product reviews is not available', res);   
-		var reviewJson = JSON.stringify(reviewRecords, null, '\t')
+		var reviewJson = JSON.stringify(reviewRecords, null, '\t');
         utility.sendJSONResponse(req, res, reviewJson);
 	   }
-	})
-	
-    
+	});
 }
 
 exports.insertReviews = function(req, res) {
     var data = req.body;
-    //console.info("json data",data);
     var productId = data.review.productId;
     var userId = data.review.userId;
     var rating = data.review.rating;
     var comment = data.review.comment;
     var commentDate = data.review.commentDate;
-	console.info('productId = ', productId);
     Review.build({ pd_id: productId, user_id: userId, comment: comment, rating:rating, comment_date: commentDate })
     .save().on('success', function() {
-	//	console.info('save');
 		var message = {};
 		message.successMessage = "Success";
 		var reviewMessage = JSON.stringify(message, null, '\t')
 		utility.sendJSONResponse(req, res, reviewMessage);
-    })
+    });
     .on('failure', function(err) {
-		//console.info('err = ', err);
         var message = {};
         message.successMessage = "Failed";
-/*        var registerMessage = JSON.stringify(message, null, '\t')
-        utility.sendJSONResponse(req, res, registerMessage);
-        exception.executeException(0, '1000', err, res);
-*/    
-		var reviewMessage = JSON.stringify(message, null, '\t')
+		var reviewMessage = JSON.stringify(message, null, '\t');
 		utility.sendJSONResponse(req, res, reviewMessage);
-	})
+	});
     
 }
 
@@ -713,8 +684,8 @@ exports.getUser = function(req, res) {
                     }
                     var loginMessage = JSON.stringify(message, null, '\t')
                     utility.sendJSONResponse(req, res, loginMessage);
-                })
-        })
+                });
+        });
 }
 
 
@@ -740,7 +711,7 @@ exports.getOrderhistroy = function(req, res, userId) {
          		orderRecords.product = productsArray;                              
 				jsonStr = JSON.stringify(orderRecords, null, '\t'); 
                 utility.sendJSONResponse(req, res, jsonStr);
-			})
+			});
 }
 
 exports.insertUser = function(req, res) {   
@@ -765,9 +736,9 @@ exports.insertUser = function(req, res) {
                     message.successMessage = "Success";
                     var registerMessage = JSON.stringify(message, null, '\t')
                     utility.sendJSONResponse(req, res, registerMessage);
-                })
-                })
-            }
+                });
+            });
+        }
             else{
                 message.message = "Already exist";
                 message.userId = "0";
@@ -776,12 +747,11 @@ exports.insertUser = function(req, res) {
                 utility.sendJSONResponse(req, res, registerMessage);
             }
             
-        })
+        });
 }
 
 exports.insertOrder = function(req, res) {
     var data = req.body;
-	//console.info("checkout details data", data );
     var products = data.products;
     var firstName = data.customerInfo.billingAddress.firstName;
     var lastName = data.customerInfo.billingAddress.lastName;
@@ -796,18 +766,17 @@ exports.insertOrder = function(req, res) {
 	if(userId == undefined){
 		var userId = 0;
 	}
-    //var phonenumber = data.billingAddress.phonenumber;
-    var currentTime = new Date()
-    var month = currentTime.getMonth() + 1
+    var currentTime = new Date();
+    var month = currentTime.getMonth() + 1;
     var month = month < 10 ? "0" + month : month;
-    var day = currentTime.getDate()
+    var day = currentTime.getDate();
     var day = day < 10 ? "0" + day : day;
-    var year = currentTime.getFullYear()
+    var year = currentTime.getFullYear();
     now = year + "-" + month + "-" + day;
     
     Order.build({od_date: now, od_last_update: now, userid: userId, od_shipping_first_name: firstName, od_shipping_last_name: lastName, od_shipping_address1: address1, od_shipping_address2:address2, od_shipping_city: city , od_shipping_postal_code: postcode, od_shipping_cost: 000,od_payment_first_name: firstName, od_payment_last_name: lastName, od_payment_address1: address1, od_payment_address2:address2, od_payment_city: city , od_payment_postal_code: postcode, od_comments: comments, od_totalqty: totalItem, od_totalprice: totalPrice })
     .save().on('success', function() {
-              var chainer = new Sequelize.Utils.QueryChainer    
+              var chainer = new Sequelize.Utils.QueryChainer;    
               chainer.add(
                   Order.findAll({order: 'id DESC', limit: 1}).on('success', function(orderdata) {
                     }).on('success', function(orderId) {
@@ -821,7 +790,7 @@ exports.insertOrder = function(req, res) {
                             Orderitem.build({id: orderId, pd_id: productId, od_qty: quantity })
                             .save().on('success', function() {
                            
-                            })
+                            });
                         }
 						var message = {};
 						message.message = "Inserted";
@@ -829,14 +798,14 @@ exports.insertOrder = function(req, res) {
 						message.successMessage = "Success";
 						var registerMessage = JSON.stringify(message, null, '\t')
                         utility.sendJSONResponse(req, res, registerMessage);
-                    })
+                    });
              )
             chainer.run().on('success', function() { 
-            })
+            });
     })
     .on('failure', function(err) {
         exception.executeException(0, '1000', err, res);
-    })
+    });
 }
 
 

@@ -19,7 +19,7 @@
  */
 var Sequelize = require("sequelize");
 var underscore = require("underscore");
-var utility = require("../utility")
+var utility = require("../utility");
 var sequelize;
 
 
@@ -49,14 +49,13 @@ exports.configure = function(currentEnv) {
         // the following example is basically the same as:
         // sequelize.define(name, attributes, { timestamps: false })
         // so defining the timestamps for each model will be not necessary
-        define: { timestamps: false },
+        define: { timestamps: false; },
 
         // similiar for sync: you can define this to always force sync for models
-        sync: { force: false }
-    })
+        sync: { force: false; }
+    });
 }
 
 exports.getSequelize = function(currentEnv) {
-    //console.info('sequelize = ', sequelize);
     return sequelize;
 }
