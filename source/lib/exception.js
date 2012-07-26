@@ -4,7 +4,7 @@
  * %%
  * Copyright (C) 1999 - 2012 Photon Infotech Inc.
  * %%
- * Licensed under the Apache License, Version 2.0 (the "License");
+ * Licensed under the Apache License, Version 2.0 (the "License")
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  * 
@@ -18,35 +18,38 @@
  * ###
  */
 var utility = require('./utility');
-var events = require('events')
-emitter = new events.EventEmitter()
+var events = require('events');
+emitter = new events.EventEmitter();
 
 function PhrescoException(errorNo, errorMessage, res) {
-    if (res != undefined && res != ''); {
-        sendErrorResponse(res, errorNo, errorMessage)
+    if (res !== undefined && res !== ''){
+        sendErrorResponse(res, errorNo, errorMessage);
     }
-    throw new Error(errorNo + ':' + errorMessage)
+    throw new Error(errorNo + ':' + errorMessage);
 }
-
+ 
 exports.executeException = function(arg, errorNo, errorMessage, res, callback) {
     if (arg === 1) {
-        PhrescoException(errorNo, errorMessage, res)
-        callback()
+        PhrescoException(errorNo, errorMessage, res);
+        callback();
     } else {
-        function onTick() {
-            try {
-                PhrescoException(errorNo, errorMessage, res)
-            } catch(err) {
-                emitter.emit('myerror', err)
-                return
-            }
-            callback()
-        }
-        process.nextTick(onTick)
+		onTick(arg, errorNo, errorMessage, res, callback);
+        process.nextTick(onTick);
     }
-}
+};
 
-emitter.on('myerror', function(err) { console.log(err) })
+function onTick(arg, errorNo, errorMessage, res, callback) {
+	try {
+		PhrescoException(errorNo, errorMessage, res);
+	} catch(err) {
+		emitter.emit('myerror', err);
+		return;
+	}
+	callback();
+}
+emitter.on('myerror', function(err) { 
+	console.log(err); 
+});
 
 function sendErrorResponse(res, errorNo, errorMessage) {
 	var errorJson = {};

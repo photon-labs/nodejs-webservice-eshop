@@ -169,4 +169,4 @@ exports.expose = function(app, serverConfig) {
 	app.post(eshopRestApi + '/product/post/orderdetail', function(req, res){
 		db.insertOrder(req, res);
     });
-}
+};

@@ -4,7 +4,7 @@
  * %%
  * Copyright (C) 1999 - 2012 Photon Infotech Inc.
  * %%
- * Licensed under the Apache License, Version 2.0 (the "License");
+ * Licensed under the Apache License, Version 2.0 (the "License")
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  * 
@@ -24,7 +24,7 @@ module.exports = function(sequelize, DataTypes) {
 			user_id: { type: sequelize.INTEGER},
 			rating: { type: sequelize.INTEGER},
 			comment: { type: sequelize.STRING},
-			comment_date: { type: sequelize.DATE};		   
+			comment_date: { type: sequelize.DATE}	   
 		 });
 	return review;
-}
+};

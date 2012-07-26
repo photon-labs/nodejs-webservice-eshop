@@ -4,7 +4,7 @@
  * %%
  * Copyright (C) 1999 - 2012 Photon Infotech Inc.
  * %%
- * Licensed under the Apache License, Version 2.0 (the "License");
+ * Licensed under the Apache License, Version 2.0 (the "License")
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  * 
@@ -49,13 +49,13 @@ exports.configure = function(currentEnv) {
         // the following example is basically the same as:
         // sequelize.define(name, attributes, { timestamps: false })
         // so defining the timestamps for each model will be not necessary
-        define: { timestamps: false; },
+        define: { timestamps: false },
 
         // similiar for sync: you can define this to always force sync for models
-        sync: { force: false; }
+        sync: { force: false }
     });
-}
+};
 
 exports.getSequelize = function(currentEnv) {
     return sequelize;
-}
+};

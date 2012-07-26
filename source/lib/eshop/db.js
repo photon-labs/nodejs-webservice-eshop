@@ -39,9 +39,9 @@ EshopCategory.hasMany(Product, { foreignKey: 'cat_id', as: "Products" });
  *
  */
 exports.getCategories = function(req, res) {
-    var categoriesArray = new Array();
-    var categoriesIdList = new Array();
-    var categoriesObjs = new Array();
+    var categoriesArray = [];
+    var categoriesIdList = [];
+    var categoriesObjs = [];
     var categoryRecords = {};
     EshopCategory.findAll().on('success', function(categories) {
         for (var i = 0; i < categories.length; i++) {
@@ -51,7 +51,7 @@ exports.getCategories = function(req, res) {
         }
     }).on('success', function() {
          var chainer = new Sequelize.Utils.QueryChainer;
-         var productCountArrray = new Array();
+         var productCountArrray = [];
           for (var i = 0; i < categoriesIdList.length; i++) {
               var categoryId = categoriesObjs[i].id;
               var j = 0;
@@ -65,8 +65,8 @@ exports.getCategories = function(req, res) {
                         category.productCount = productCount;
                         categoriesArray[j] = category;
                         j++;
-                    });
-                )
+                    })
+                );
               chainer.run().on('success', function(){
                 categoryRecords.category = categoriesArray;                              
                 jsonStr = JSON.stringify(categoryRecords, null, '\t'); 
@@ -75,11 +75,11 @@ exports.getCategories = function(req, res) {
           }
         }).on('failure', function(err){
                 exception.executeException(0, '1000', err, res);   
-            })
-}
+            });
+};
 
 exports.getProducts = function(req, res, categoryId) {
-    var productsArray = new Array();
+    var productsArray = [];
     var productsRecords = {};
 	
 	if (isNaN(categoryId)) {
@@ -87,7 +87,7 @@ exports.getProducts = function(req, res, categoryId) {
 	}
 	else{
     EshopCategory.find(parseInt(categoryId)).on('success', function(category) {
-        if (category != null) {
+        if (category !== null) {
             category.getProducts().on('success', function(products) {
               for (var i = 0; i < products.length; i++) {
                 var product = {};
@@ -106,28 +106,28 @@ exports.getProducts = function(req, res, categoryId) {
               }
             }).on('success', function() {
                 var chainer = new Sequelize.Utils.QueryChainer;
-                var ratingIdList = new Array();
-                var reviewsObjs = new Array();
-                var reviewArray = new Array();
+                var ratingIdList = [];
+                var reviewsObjs = [];
+                var reviewArray = [];
                 var review = {};
                 var ratingString;
-                var ratingrecordArray = new Array();
+                var ratingrecordArray = [];
                 
                 var rating = {};
                 var totalCount = 0;
                 for (var p = 0; p < productsArray.length; p++) {
                     var j = 0;
                     var ratingCountString;
-                    var ratingArray = new Array();
+                    var ratingArray = [];
                     chainer.add(
                         Review.count({where: {rating: [1,2,3,4,5], pd_id: productsArray[p].id}}).on('success', function(ratingCount) {
                             totalCount = ratingCount;
 							totalCount = (totalCount > 25)? (totalCount /2) : totalCount;
                             var average = (totalCount / 5);
                             ratingArray[j] = Math.round(average);
-                            j++
-                        });
-                    )
+                            j++;
+                        })
+                    );
                     chainer.run().on('success', function() {
                         var avgRating = {};
                         avgRating.rating =  ratingArray;
@@ -143,20 +143,20 @@ exports.getProducts = function(req, res, categoryId) {
                 }
             }).on('failure', function(err){
                 exception.executeException(0, '1000', err, res);   
-            })
+            });
         } else {
             exception.executeException(0, '1001', 'Category id unavailable', res);   
         }
     })
-    .on('failure', function(err){
-            exception.executeException(0, '1000', err, res);   
-        })
+		.on('failure', function(err){
+			exception.executeException(0, '1000', err, res);   
+		});
 	}
-}
+};
 
 
 exports.getAllProducts = function(req, res) {
-    var productsArray = new Array();
+    var productsArray = [];
     var productsRecords = {};
     Product.findAll().on('success', function(products) {
               for (var i = 0; i < products.length; i++) {
@@ -176,29 +176,29 @@ exports.getAllProducts = function(req, res) {
                 productsArray[i] = product;
               }
             }).on('success', function() {
-                var chainer = new Sequelize.Utils.QueryChainer
-                var ratingIdList = new Array();
-                var reviewsObjs = new Array();
-                var reviewArray = new Array();
+                var chainer = new Sequelize.Utils.QueryChainer;
+                var ratingIdList = [];
+                var reviewsObjs = [];
+                var reviewArray = [];
                 var review = {};
                 var ratingString;
-                var ratingrecordArray = new Array();
+                var ratingrecordArray = [];
                 
                 var rating = {};
                 var totalCount = 0;
                 for (var p = 0; p < productsArray.length; p++) {
                     var j = 0;
                     var ratingCountString;
-                    var ratingArray = new Array();
+                    var ratingArray = [];
                     chainer.add(
                         Review.count({where: {rating: [1,2,3,4,5], pd_id: productsArray[p].id}}).on('success', function(ratingCount) {
                             totalCount = ratingCount;
 							totalCount = (totalCount > 25)? (totalCount /2) : totalCount;
                             var average = (totalCount / 5);
                             ratingArray[j] = Math.round(average);
-                            j++
-                        });
-                    )
+                            j++;
+                        })
+                    );
                     chainer.run().on('success', function() {
                         var avgRating = {};
                         avgRating.rating =  ratingArray;
@@ -214,13 +214,13 @@ exports.getAllProducts = function(req, res) {
                 }
             }).on('failure', function(err){
                 exception.executeException(0, '1000', err, res);   
-            })
-}
+            });
+};
 
 
 
 exports.getNewProducts = function(req, res) {
-    var productsArray = new Array();
+    var productsArray = [];
     var productsRecords = {};
     Product.findAll({where: ["pd_new = ?", 1]}).on('success', function(products) {
               for (var i = 0; i < products.length; i++) {
@@ -240,29 +240,29 @@ exports.getNewProducts = function(req, res) {
                 productsArray[i] = product;
               }
             }).on('success', function() {
-                var chainer = new Sequelize.Utils.QueryChainer
-                var ratingIdList = new Array();
-                var reviewsObjs = new Array();
-                var reviewArray = new Array();
+                var chainer = new Sequelize.Utils.QueryChainer;
+                var ratingIdList = [];
+                var reviewsObjs = [];
+                var reviewArray = [];
                 var review = {};
                 var ratingString;
-                var ratingrecordArray = new Array();
+                var ratingrecordArray = [];
                 
                 var rating = {};
                 var totalCount = 0;
                 for (var p = 0; p < productsArray.length; p++) {
                     var j = 0;
                     var ratingCountString;
-                    var ratingArray = new Array();
+                    var ratingArray = [];
                     chainer.add(
                         Review.count({where: {rating: [1,2,3,4,5], pd_id: productsArray[p].id}}).on('success', function(ratingCount) {
                             totalCount = ratingCount;
 							totalCount = (totalCount > 25)? (totalCount /2) : totalCount;
                             var average = (totalCount / 5);
                             ratingArray[j] = Math.round(average);
-                            j++
-                        });
-                    )
+                            j++;
+                        })
+                    );
                     chainer.run().on('success', function() {
                         var avgRating = {};
                         avgRating.rating =  ratingArray;
@@ -278,12 +278,12 @@ exports.getNewProducts = function(req, res) {
                 }
             }).on('failure', function(err){
                 exception.executeException(0, '1000', err, res);   
-            })
-}
+            });
+};
 
 
 exports.getSpecialProducts = function(req, res) {
-    var productsArray = new Array();
+    var productsArray = [];
     var productsRecords = {};
     Product.findAll({where: ["pd_special = ?", 1]}).on('success', function(products) {
               for (var i = 0; i < products.length; i++) {
@@ -303,29 +303,29 @@ exports.getSpecialProducts = function(req, res) {
                 productsArray[i] = product;
               }
             }).on('success', function() {
-                var chainer = new Sequelize.Utils.QueryChainer
-                var ratingIdList = new Array();
-                var reviewsObjs = new Array();
-                var reviewArray = new Array();
+                var chainer = new Sequelize.Utils.QueryChainer;
+                var ratingIdList = [];
+                var reviewsObjs = [];
+                var reviewArray = [];
                 var review = {};
                 var ratingString;
-                var ratingrecordArray = new Array();
+                var ratingrecordArray = [];
                 
                 var rating = {};
                 var totalCount = 0;
                 for (var p = 0; p < productsArray.length; p++) {
                     var j = 0;
                     var ratingCountString;
-                    var ratingArray = new Array();
+                    var ratingArray = [];
                     chainer.add(
                         Review.count({where: {rating: [1,2,3,4,5], pd_id: productsArray[p].id}}).on('success', function(ratingCount) {
                             totalCount = ratingCount;
 							totalCount = (totalCount > 25)? (totalCount /2) : totalCount;
                             var average = (totalCount / 5);
                             ratingArray[j] = Math.round(average);
-                            j++
-                        });
-                    )
+                            j++;
+                        })
+                    );
                     chainer.run().on('success', function() {
                         var avgRating = {};
                         avgRating.rating =  ratingArray;
@@ -342,8 +342,8 @@ exports.getSpecialProducts = function(req, res) {
                 }
             }).on('failure', function(err){
                 exception.executeException(0, '1000', err, res);   
-            })
-}
+            });
+};
 
 
 
@@ -351,7 +351,7 @@ exports.getSpecialProducts = function(req, res) {
 exports.getProductdetails = function(req, res, productId) {
     var totalcount="";
     var jsonStr = "";
-    var productsArray = new Array();
+    var productsArray = [];
     var productsRecords = {};
     Product.findAll({where: ["id = ?", productId]}).on('success', function(products) {
 		try {
@@ -374,13 +374,13 @@ exports.getProductdetails = function(req, res, productId) {
 			exception.executeException(0, '1000', "failed during product details", res);
 	  	}
     }).on('success', function() {
-        var chainer = new Sequelize.Utils.QueryChainer
-        var ratingIdList = new Array();
-        var reviewsObjs = new Array();
-        var reviewArray = new Array();
+        var chainer = new Sequelize.Utils.QueryChainer;
+        var ratingIdList = [];
+        var reviewsObjs = [];
+        var reviewArray = [];
         var review = {};
         var ratingString;
-        var ratingrecordArray = new Array();
+        var ratingrecordArray = [];
 
         var totalCount = 0;
             var j = 0;
@@ -392,8 +392,8 @@ exports.getProductdetails = function(req, res, productId) {
 					totalCount = (totalCount > 25)? (totalCount /2) : totalCount;
                     var average = (totalCount / 5);
                     rating = Math.round(average);
-                });
-            )
+                })
+            );
             chainer.run().on('success', function() {
                 var product;
                 for (var p1 = 0; p1 < productsArray.length; p1++) {
@@ -401,7 +401,7 @@ exports.getProductdetails = function(req, res, productId) {
                     product.rating = rating;
                     productsArray[p1] = product;
                 }
-                if (product ==  undefined) {
+                if (product ===  undefined) {
                     exception.executeException(0, '1001', 'Product id unavailable', res);
                 } else {
                     var details = {"TV Type": "LCD", "Screen Size": "32' Inches", "Screen Ratio": "16:9", "TV Definition": "HDTV"};
@@ -413,21 +413,21 @@ exports.getProductdetails = function(req, res, productId) {
                 }
             }).on('failure', function(err){
                 exception.executeException(0, '1000', err, res);   
-            })
+            });
                 
         }).on('failure', function(err) {
             exception.executeException(0, '1000', err, res);
-        })
-}
+        });
+};
 
 
 exports.getSearchdetails = function(req, res, searchword) {
     var totalcount="";
     var jsonStr = "";
-    var productsArray = new Array();
+    var productsArray = [];
     var productsRecords = {};
         Product.findAll({where: 'pd_name like "%'+searchword+'%" or pd_description like "%'+searchword+'%"' }).on('success', function(products) {    
-		if(products.length != 0){																													  
+		if(products.length !== 0){																													  
 			for (var i = 0; i < products.length; i++) {
 				var product = {};
 				// TODO Rating hardcode
@@ -448,34 +448,34 @@ exports.getSearchdetails = function(req, res, searchword) {
 
 			var message = {};
 			message.successMessage = "no item found";
-			var searchMessage = JSON.stringify(message, null, '\t')
+			var searchMessage = JSON.stringify(message, null, '\t');
             utility.sendJSONResponse(req, res, searchMessage);
 	  	}
 
 		}).on('success', function() {
                 var chainer = new Sequelize.Utils.QueryChainer;
-                var ratingIdList = new Array();
-                var reviewsObjs = new Array();
-                var reviewArray = new Array();
+                var ratingIdList = [];
+                var reviewsObjs = [];
+                var reviewArray = [];
                 var review = {};
                 var ratingString;
-                var ratingrecordArray = new Array();
+                var ratingrecordArray = [];
                 
                 var rating = {};
                 var totalCount = 0;
                 for (var p = 0; p < productsArray.length; p++) {
                     var j = 0;
                     var ratingCountString;
-                    var ratingArray = new Array();
+                    var ratingArray = [];
                     chainer.add(
                         Review.count({where: {rating: [1,2,3,4,5], pd_id: productsArray[p].id}}).on('success', function(ratingCount) {
                             totalCount = ratingCount;
 							totalCount = (totalCount > 25)? (totalCount /2) : totalCount;
                             var average = (totalCount / 5);
                             ratingArray[j] = Math.round(average);
-                            j++
-                        });
-                    )
+                            j++;
+                        })
+                    );
                     chainer.run().on('success', function() {
                         var avgRating = {};
                         avgRating.rating =  ratingArray;
@@ -493,20 +493,20 @@ exports.getSearchdetails = function(req, res, searchword) {
             }).on('failure', function(err){
                 exception.executeException(0, '1000', err, res);   
             });
-}
+};
     
 exports.getReviews = function(req, res, productId) {
     var reviewRecords = {};
-    var chainer = new Sequelize.Utils.QueryChainer
-    var ratingIdList = new Array();
-    var reviewsObjs = new Array();
-    var reviewArray = new Array();
+    var chainer = new Sequelize.Utils.QueryChainer;
+    var ratingIdList = [];
+    var reviewsObjs = [];
+    var reviewArray = [];
     var review = {};
     review.productId = productId;
     review.userId = 1;
 	
    Product.find({where: {id: productId}}).on('success', function(products) {
-	if(products != null) {
+	if(products !== null) {
     Review.findAll({where: ["pd_id = ? ", productId]}).on('success', function(reviews) {
         if ( reviews.length > 0){
             for (var i = 0; i < reviews.length; i++) {
@@ -515,9 +515,9 @@ exports.getReviews = function(req, res, productId) {
                 reviewsObjs[i] = reviews[i];
             }
         } else {
-            var commentsArray = new Array();
+            var commentsArray = [];
 
-			var ratingArray = new Array();
+			var ratingArray = [];
 			 for (var r = 0; r < 5; r++) {
 				var ratingSeries = {};
 				var ratingKeyValue = {};
@@ -537,7 +537,7 @@ exports.getReviews = function(req, res, productId) {
        }
     }).on('success', function() {
         var ratingString;
-        var ratingrecordArray = new Array();
+        var ratingrecordArray = [];
         var j = 0;
         var rating = {};
         var totalCount = 0;
@@ -546,7 +546,7 @@ exports.getReviews = function(req, res, productId) {
             var ratingId = i;
             var k = 1;
             var ratingCountString;
-            var ratingArray = new Array();
+            var ratingArray = [];
             chainer.add(
                 Review.count({where: {rating: ratingId, pd_id: productId}}).on('success', function(ratingCount) {
                     var ratingSeries = {};
@@ -556,19 +556,19 @@ exports.getReviews = function(req, res, productId) {
 
                     totalCount += ratingCount;
                     ratingArray[j] = ratingKeyValue;
-                    j++  
-                    k++// display rating id
-                });
-            )
+                    j++;
+                    k++;// display rating id
+                })
+            );
             chainer.run().on('success', function() {
                     var commentsChainer = new Sequelize.Utils.QueryChainer;
-                    var commentsArray = new Array();
+                    var commentsArray = [];
                     var ratings = {};
                     ratings.rating = ratingArray;
                     review.ratings = ratings;
                     review.average = Math.round((totalCount / 5));
-                    var usernameArray = new Array();
-                    var userIdList = new Array();
+                    var usernameArray = [];
+                    var userIdList = [];
                     var now = new Date();
                     commentsChainer.add(
                         Review.findAll({where: ["pd_id = ?", productId]}).on('success', function(reviewRecord) {
@@ -593,7 +593,7 @@ exports.getReviews = function(req, res, productId) {
                                 commentsArray[m] = comment;
                             }
                         }).on('success', function(err) {
-                           var userId = new Array();
+                           var userId = [];
                            for (var z = 0; z < userIdList.length; z++){
                                userId.push(userIdList[z]);
                            }
@@ -613,8 +613,8 @@ exports.getReviews = function(req, res, productId) {
                                 var reviewJson = JSON.stringify(reviewRecords, null, '\t');
                                 utility.sendJSONResponse(req, res, reviewJson);
                             });
-                        });
-                    )
+                        })
+                    );
                 }).on('failure', function(err) {
                     exception.executeException(0, '1000', err, res);
                 });
@@ -625,7 +625,7 @@ exports.getReviews = function(req, res, productId) {
 		});
 	}
 	else {
-		var commentsArray = new Array();
+		var commentsArray = [];
 		 var commentJson = {};
 			commentJson.comment = 'Not available...';
 			commentJson.user = 'Review';
@@ -637,7 +637,7 @@ exports.getReviews = function(req, res, productId) {
         utility.sendJSONResponse(req, res, reviewJson);
 	   }
 	});
-}
+};
 
 exports.insertReviews = function(req, res) {
     var data = req.body;
@@ -650,9 +650,9 @@ exports.insertReviews = function(req, res) {
     .save().on('success', function() {
 		var message = {};
 		message.successMessage = "Success";
-		var reviewMessage = JSON.stringify(message, null, '\t')
+		var reviewMessage = JSON.stringify(message, null, '\t');
 		utility.sendJSONResponse(req, res, reviewMessage);
-    });
+    })
     .on('failure', function(err) {
         var message = {};
         message.successMessage = "Failed";
@@ -660,7 +660,7 @@ exports.insertReviews = function(req, res) {
 		utility.sendJSONResponse(req, res, reviewMessage);
 	});
     
-}
+};
 
 exports.getUser = function(req, res) {
     var data = req.body;
@@ -682,15 +682,15 @@ exports.getUser = function(req, res) {
 						message.userName = "";
                         message.successMessage = "Login failed";
                     }
-                    var loginMessage = JSON.stringify(message, null, '\t')
+                    var loginMessage = JSON.stringify(message, null, '\t');
                     utility.sendJSONResponse(req, res, loginMessage);
                 });
         });
-}
+};
 
 
 exports.getOrderhistroy = function(req, res, userId) {
-	var productsArray = new Array();
+	var productsArray = [];
 	var orderRecords = {};
 	
 		
@@ -712,7 +712,7 @@ exports.getOrderhistroy = function(req, res, userId) {
 				jsonStr = JSON.stringify(orderRecords, null, '\t'); 
                 utility.sendJSONResponse(req, res, jsonStr);
 			});
-}
+};
 
 exports.insertUser = function(req, res) {   
     var data = req.body;
@@ -724,7 +724,7 @@ exports.insertUser = function(req, res) {
         User.count({ where: {email: email} }).on('success', function(user) {
         }).on('success', function(user) {
             var message = {};
-            if(user == 0){
+            if(user === 0){
                 User.build({first_name:firstname,last_name:lastname, email: email, password: password, phone: phoneNumber })
                 .save().on('success', function() {
                 User.findAll({order: 'id DESC', limit: 1}).on('success', function(userid) {
@@ -734,7 +734,7 @@ exports.insertUser = function(req, res) {
                     message.message = "Inserted";
                     message.userId = userId;
                     message.successMessage = "Success";
-                    var registerMessage = JSON.stringify(message, null, '\t')
+                    var registerMessage = JSON.stringify(message, null, '\t');
                     utility.sendJSONResponse(req, res, registerMessage);
                 });
             });
@@ -743,12 +743,12 @@ exports.insertUser = function(req, res) {
                 message.message = "Already exist";
                 message.userId = "0";
                 message.successMessage = "Failed";
-                var registerMessage = JSON.stringify(message, null, '\t')
+                var registerMessage = JSON.stringify(message, null, '\t');
                 utility.sendJSONResponse(req, res, registerMessage);
             }
             
         });
-}
+};
 
 exports.insertOrder = function(req, res) {
     var data = req.body;
@@ -763,7 +763,7 @@ exports.insertOrder = function(req, res) {
 	var userId = data.userId;
 	var totalPrice = data.totalPrice;
 	var totalItem = data.totalItem;
-	if(userId == undefined){
+	if(userId === undefined){
 		var userId = 0;
 	}
     var currentTime = new Date();
@@ -796,16 +796,16 @@ exports.insertOrder = function(req, res) {
 						message.message = "Inserted";
 						message.orderId = orderId;
 						message.successMessage = "Success";
-						var registerMessage = JSON.stringify(message, null, '\t')
+						var registerMessage = JSON.stringify(message, null, '\t');
                         utility.sendJSONResponse(req, res, registerMessage);
-                    });
-             )
+                    })
+             );
             chainer.run().on('success', function() { 
             });
     })
     .on('failure', function(err) {
         exception.executeException(0, '1000', err, res);
     });
-}
+};
 
 

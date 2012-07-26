@@ -4,7 +4,7 @@
  * %%
  * Copyright (C) 1999 - 2012 Photon Infotech Inc.
  * %%
- * Licensed under the Apache License, Version 2.0 (the "License");
+ * Licensed under the Apache License, Version 2.0 (the "License")
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  * 
@@ -33,9 +33,6 @@ function update_log(data) {
   });
 
   stream.write(dateAndTime + " ", 'utf8');
-  //stream.write(request.connection.remoteAddress + ": ", 'utf8')
-  //stream.write(request.method + " ", 'utf8')
-  //stream.write(request.url + "\n", 'utf8');
   stream.write(data);
   stream.end();
 }
@@ -46,9 +43,8 @@ exports.update_log = update_log;
 Logger = function() {
   	events.EventEmitter.call(this);
 	this.log = function(data){
-		//update_log(data);
 		this.emit('log', data);
-	}
+	};
 };
 
 util.inherits(Logger, events.EventEmitter);
@@ -58,7 +54,7 @@ Listener = function(){
   	this.logHandler =  function(data){
       	console.log("** log event handled");
 		console.log(data);
-  	}
+  	};
 };
 
 // The thing that drives the two.
@@ -66,8 +62,3 @@ var logger = new Logger();
 var listener = new Listener(logger);
 logger.on('log', listener.logHandler);
 
-//logger.log('Exception handled');
-
-//logger.log('My Exception handled');
-
-//logger.log('New Exception handled');

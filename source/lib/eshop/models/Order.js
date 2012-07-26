@@ -4,7 +4,7 @@
  * %%
  * Copyright (C) 1999 - 2012 Photon Infotech Inc.
  * %%
- * Licensed under the Apache License, Version 2.0 (the "License");
+ * Licensed under the Apache License, Version 2.0 (the "License")
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  * 
@@ -36,10 +36,10 @@ module.exports = function(sequelize, DataTypes) {
 		od_payment_address1: { type: sequelize.STRING},
 		od_payment_address2: { type: sequelize.STRING},
 		od_payment_city: { type: sequelize.STRING},
-		od_payment_postal_code: { type: sequelize.INTEGER};
+		od_payment_postal_code: { type: sequelize.INTEGER}
     
   });
    return order;
-}
+};
 
 

@@ -52,4 +52,4 @@ module.exports = function() {
 	client.connect();
 
 	return client;
-}
+};

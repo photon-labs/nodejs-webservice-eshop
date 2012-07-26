@@ -4,7 +4,7 @@
  * %%
  * Copyright (C) 1999 - 2012 Photon Infotech Inc.
  * %%
- * Licensed under the Apache License, Version 2.0 (the "License");
+ * Licensed under the Apache License, Version 2.0 (the "License")
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  * 
@@ -31,7 +31,7 @@ module.exports = function(sequelize, DataTypes) {
         pd_last_price: { type: sequelize.STRING},
         pd_sell_price: { type: sequelize.STRING},
         pd_img: { type: sequelize.STRING},
-        pd_det_img: { type: sequelize.STRING};
+        pd_det_img: { type: sequelize.STRING}
     }, {
       classMethods: {
         getProd: function(){ return this.attributes.productId; }
@@ -40,4 +40,4 @@ module.exports = function(sequelize, DataTypes) {
         getProducts: function() { return this; }
       }
   });
-}
+};

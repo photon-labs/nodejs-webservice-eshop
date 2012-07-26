@@ -4,7 +4,7 @@
  * %%
  * Copyright (C) 1999 - 2012 Photon Infotech Inc.
  * %%
- * Licensed under the Apache License, Version 2.0 (the "License");
+ * Licensed under the Apache License, Version 2.0 (the "License")
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  * 
@@ -21,9 +21,9 @@ module.exports = function(sequelize, DataTypes) {
   var orderItem = sequelize.define("eshop_order_items", {
         id: { type: sequelize.INTEGER, primaryKey: true},
         pd_id: { type: sequelize.INTEGER},
-        od_qty: { type: sequelize.INTEGER};
+        od_qty: { type: sequelize.INTEGER}
   });
    return orderItem;
-}
+};
 
 
