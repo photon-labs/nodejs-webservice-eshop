@@ -5,7 +5,7 @@
 	<artifactId>Phresco</artifactId>
 	<packaging>pom</packaging>
 	<name>Performance testing for Nodejs_webservices - Webservices</name>
-	<version>1.2.2.3002-SNAPSHOT</version>
+	<version>1.2.3.1001-SNAPSHOT</version>
 	
 	<build>
 		<plugins>
