@@ -5,7 +5,7 @@
 	<artifactId>Phresco</artifactId>
 	<packaging>pom</packaging>
 	<name>Load testing for Nodejs-Webservice</name>
-	<version>1.2.3.3003-SNAPSHOT</version>
+	<version>1.2.3.3004-SNAPSHOT</version>
 	
 	<build>
 		<plugins>
