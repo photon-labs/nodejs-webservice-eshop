@@ -10,7 +10,9 @@
         <name>Photon Infotech Inc.</name>
     </organization>
     <build>
-        <sourceDirectory>source</sourceDirectory>
+        <sourceDirectory>source/lib</sourceDirectory>
+		<testSourceDirectory>source/test</testSourceDirectory>
+		<directory>do_not_checkin/target</directory>
         <plugins>
             <plugin>
                 <groupId>com.photon.phresco.plugins</groupId>
@@ -19,26 +21,6 @@
                 <extensions>true</extensions>
             </plugin>
             <plugin>
-                <groupId>org.codehaus.mojo</groupId>
-                <artifactId>exec-maven-plugin</artifactId>
-                <version>1.1.1</version>
-                <executions>
-                    <execution>
-                        <phase>test</phase>
-                        <goals>
-                            <goal>exec</goal>
-                        </goals>
-                    </execution>
-                </executions>
-                <configuration>
-                    <executable xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">node</executable>
-                    <workingDirectory xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">./</workingDirectory>
-                    <arguments xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-                        <argument>source/test/AllTest.js</argument>
-                   </arguments>
-                </configuration>
-            </plugin>
-			<plugin>
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>license-maven-plugin</artifactId>
                 <version>1.1</version>
@@ -56,9 +38,133 @@
             </plugin>
         </plugins>
     </build>
+	<profiles>
+		<profile>
+		    <id>windows</id>
+		    <activation>
+				<os>
+	    		    <family>Windows</family>
+				</os>
+			</activation>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>org.codehaus.mojo</groupId>
+						<artifactId>exec-maven-plugin</artifactId>
+						<version>1.1.1</version>
+						<executions>
+							<execution>
+								<phase>test</phase>
+								<goals>
+									<goal>exec</goal>
+								</goals>
+							</execution>
+						</executions>
+						<configuration>
+							<executable xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">${basedir}/source/test.bat</executable>
+						</configuration>
+					</plugin>				
+				</plugins>
+			</build>
+		</profile>
+		<profile>
+		    <id>Unix</id>
+		    <activation>
+				<os>
+	    		    <family>unix</family>
+				</os>
+			</activation>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>org.codehaus.mojo</groupId>
+						<artifactId>exec-maven-plugin</artifactId>
+						<version>1.1.1</version>
+						<executions>
+							<execution>
+								<phase>test</phase>
+								<goals>
+									<goal>exec</goal>
+								</goals>
+							</execution>
+						</executions>
+						<configuration>
+							<executable xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">${basedir}/source/test.sh</executable>
+						</configuration>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+		<profile>
+		    <id>Mac</id>
+		    <activation>
+				<os>
+	    		    <family>mac</family>
+				</os>
+			</activation>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>org.codehaus.mojo</groupId>
+						<artifactId>exec-maven-plugin</artifactId>
+						<version>1.1.1</version>
+						<executions>
+							<execution>
+								<phase>test</phase>
+								<goals>
+									<goal>exec</goal>
+								</goals>
+							</execution>
+						</executions>
+						<configuration>
+							<executable xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">${basedir}/source/test.sh</executable>
+						</configuration>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+        <profile>
+            <id>ci</id>
+            <activation>
+                <activeByDefault>false</activeByDefault>
+            </activation>
+            <build>
+                <plugins>
+                    <plugin>
+                        <artifactId>maven-clean-plugin</artifactId>
+                        <version>2.5</version>
+                        <executions>
+                            <execution>
+								<id>default-clean</id>
+								<phase>pre-clean</phase>
+								<goals>
+									<goal>clean</goal>
+								</goals>
+                            </execution>
+                        </executions>
+                        <configuration>
+                            <filesets xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+								<fileset>
+									<directory>do_not_checkin/build</directory>
+									<includes>
+										<include>**/*</include>
+									</includes>
+									<followSymlinks>false</followSymlinks>
+								</fileset>
+						  </filesets>
+                        </configuration>
+                    </plugin>
+				</plugins>	
+            </build>
+        </profile>
+    </profiles>
     <properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <sonar.language xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">js</sonar.language>
         <sonar.dynamicAnalysis xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">true</sonar.dynamicAnalysis>
         <sonar.exclusions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">**/node_modules/**</sonar.exclusions>
+		<sonar.javascript.jstestdriver.reportsfolder>do_not_checkin/target/surefire</sonar.javascript.jstestdriver.reportsfolder>
+		<sonar.javascript.jstestdriver.coveragefile>coverage.dat</sonar.javascript.jstestdriver.coveragefile>  
+		<sonar.dynamicAnalysis xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">reuseReports</sonar.dynamicAnalysis>
     </properties>
 </project>

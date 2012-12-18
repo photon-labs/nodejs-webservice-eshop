@@ -24,7 +24,7 @@ module.exports = function(sequelize, DataTypes) {
 			user_id: { type: sequelize.INTEGER},
 			rating: { type: sequelize.INTEGER},
 			comment: { type: sequelize.STRING},
-			comment_date: { type: sequelize.DATE};		   
+			comment_date: { type: sequelize.DATE}			   
 		 });
 	return review;
 }

@@ -24,7 +24,7 @@ module.exports = function(sequelize, DataTypes) {
         last_name: { type: sequelize.STRING},
 		email: { type: sequelize.STRING},
 		password: { type: sequelize.STRING},
-		phone: { type: sequelize.STRING};
+		phone: { type: sequelize.STRING}
     });
     return user;
 }

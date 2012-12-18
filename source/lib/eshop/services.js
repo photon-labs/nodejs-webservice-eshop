@@ -1,22 +1,3 @@
-/*
- * ###
- * PHR_NodeJSWebService
- * %%
- * Copyright (C) 1999 - 2012 Photon Infotech Inc.
- * %%
- * Licensed under the Apache License, Version 2.0 (the "License")
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- * 
- *      http://www.apache.org/licenses/LICENSE-2.0
- * 
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- * ###
- */
 var fs = require('fs');
 var path = require('path');
 var db = require('./db');
@@ -54,87 +35,97 @@ exports.expose = function(app, serverConfig) {
 
         utility.sendJSONResponse(req, res, json);
     });
+	
+	app.post(eshopRestApi + '/post/login', function(req, res, callback){
+		db.getUser(req, res, callback);
+    });
+
+	app.post(eshopRestApi + '/post/register', function(req, res, callback){
+		db.insertUser(req, res, callback);
+    });
     
-   app.get(eshopRestApi + '/categories', function(req, res){
+    app.get(eshopRestApi + '/categories', function(req, res, callback){
         try {
-            db.getCategories(req, res);
+            db.getCategories(req, res, callback);
         } catch (err) {
             console.log('Resource not found: ' + err);
         }
     });
     
-    app.get(eshopRestApi + '/categories/:category', function(req, res){
+    app.get(eshopRestApi + '/categories/:category', function(req, res, callback){
         try {
-             db.getProducts(req, res, req.params.category);
+            db.getProducts(req, res, req.params.category, callback);
         } catch (err) {
             console.log('Resource not found: ' + err);
         }
     });
     
     
-    app.get(eshopRestApi + '/products', function(req, res){
+    app.get(eshopRestApi + '/products', function(req, res, callback){
         try {
-             db.getAllProducts(req, res);
+            db.getAllProducts(req, res, callback);
         } catch (err) {
             console.log('Resource not found: ' + err);
         }
     });
     
 
-    app.get(eshopRestApi + '/products/:product', function(req, res){
+    app.get(eshopRestApi + '/products/:product', function(req, res, callback){
         try {
-             db.getProductdetails(req, res, req.params.product);
+            db.getProductdetails(req, res, req.params.product, callback);
         } catch (err) {
             console.log('Resource not found: ' + err);
         }
     });
     
     
-    
-    app.get(eshopRestApi + '/newproducts', function(req, res){
+    app.get(eshopRestApi + '/newproducts', function(req, res, callback){
         try {
-             db.getNewProducts(req, res);
-        } catch (err) {
-            console.log('Resource not found: ' + err);
-        }
-    });
-	app.get(eshopRestApi + '/specialproducts', function(req, res){
-        try {
-             db.getSpecialProducts(req, res);
+            db.getNewProducts(req, res, callback);
         } catch (err) {
             console.log('Resource not found: ' + err);
         }
     });
 	
-    
-    
-    app.get(eshopRestApi + '/products/search/:searchtext', function(req, res){
+	app.get(eshopRestApi + '/specialproducts', function(req, res, callback){
         try {
-             db.getSearchdetails(req, res, req.params.searchtext);
-        } catch (err) {
-            console.log('Resource not found: ' + err);
-        }
-    });
-    
-    
-
-    app.get(eshopRestApi + '/products/:product/reviews', function(req, res){
-        try {
-           db.getReviews(req, res, req.params.product);
+             db.getSpecialProducts(req, res, callback);
         } catch (err) {
             console.log('Resource not found: ' + err);
         }
     });
 	
-	
-	app.get(eshopRestApi + '/products/orderhistory/:userid', function(req, res){
+    app.get(eshopRestApi + '/products/search/:searchtext', function(req, res, callback){
         try {
-            db.getOrderhistroy(req, res, req.params.userid);
+             db.getSearchdetails(req, res, req.params.searchtext, callback);
         } catch (err) {
             console.log('Resource not found: ' + err);
         }
     });
-
+    
+    app.get(eshopRestApi + '/products/:product/reviews', function(req, res, callback){
+        try {
+           db.getReviews(req, res, req.params.product, callback);
+        } catch (err) {
+            console.log('Resource not found: ' + err);
+        }
+    });
+	
+	app.post(eshopRestApi + '/product/post/review', function(req, res, callback){
+		db.insertReviews(req, res, callback);
+    });
+	
+	app.post(eshopRestApi + '/product/post/orderdetail', function(req, res, callback){
+		db.insertOrder(req, res, callback);
+    });
+	
+	app.get(eshopRestApi + '/products/orderhistory/:userid', function(req, res, callback){
+        try {
+           db.getOrderhistroy(req, res, req.params.userid, callback);
+        } catch (err) {
+           console.log('Resource not found: ' + err);
+        }
+    });
 
     app.get('*/images/*', function(req, res) {
         var index = req.url.indexOf('image');
@@ -152,21 +143,4 @@ exports.expose = function(app, serverConfig) {
             }
         });
     });
-	
-	app.post(eshopRestApi + '/product/post/review', function(req, res){
-		db.insertReviews(req, res);
-    });
-	
-	app.post(eshopRestApi + '/post/login', function(req, res){
-		db.getUser(req, res);
-    });
-
-	app.post(eshopRestApi + '/post/register', function(req, res){
-		db.insertUser(req, res);
-    });
-	
-	
-	app.post(eshopRestApi + '/product/post/orderdetail', function(req, res){
-		db.insertOrder(req, res);
-    });
-}
+};

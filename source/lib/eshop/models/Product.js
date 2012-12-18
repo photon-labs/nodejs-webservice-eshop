@@ -31,13 +31,13 @@ module.exports = function(sequelize, DataTypes) {
         pd_last_price: { type: sequelize.STRING},
         pd_sell_price: { type: sequelize.STRING},
         pd_img: { type: sequelize.STRING},
-        pd_det_img: { type: sequelize.STRING};
+        pd_det_img: { type: sequelize.STRING}
     }, {
       classMethods: {
-        getProd: function(){ return this.attributes.productId; }
+        getProd: function(){ return this.attributes.productId }
       },
       instanceMethods: {
-        getProducts: function() { return this; }
+        getProducts: function() { return this }
       }
-  });
+  })
 }
