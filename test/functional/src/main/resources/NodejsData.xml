@@ -1,18 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <environment>
 	<server>
-		<server.context.restapi>/rest/api</server.context.restapi>
-		<server.context.config>/config</server.context.config>
-		<server.context.categories>/categories</server.context.categories>
-		<server.context.products>/products</server.context.products>
-		<server.context.category1>/categories/1</server.context.category1>
-		<server.context.category2>/categories/2</server.context.category2>
-		<server.context.category3>/categories/3</server.context.category3>
-		<server.context.productreview>/products/1/reviews</server.context.productreview>
-		<server.context.searchmobile>/products/search/mobile</server.context.searchmobile>
-		<server.context.searchcomputer>/products/search/computer</server.context.searchcomputer>
-		<server.context.newproducts>/newproducts</server.context.newproducts>
-		<server.context.specialproducts>/specialproducts</server.context.specialproducts>
+		<context.config>/rest/api/config</context.config>
+		<context.categories>/rest/api/categories</context.categories>
+		<context.products>/rest/api/products</context.products>
+		<context.category1>/rest/api/categories/1</context.category1>
+		<context.category2>/rest/api/categories/2</context.category2>
+		<context.category3>/rest/api/categories/3</context.category3>
+		<context.productreview>/rest/api/products/1/reviews</context.productreview>
+		<context.searchmobile>/rest/api/products/search/mobile</context.searchmobile>
+		<context.searchcomputer>/rest/api/products/search/computer</context.searchcomputer>
+		<context.newproducts>/rest/api/newproducts</context.newproducts>
+		<context.specialproducts>/rest/api/specialproducts</context.specialproducts>
+		
+	<!-- 	<RestapiCategories></RestapiCategories>
+		<RestapiCategory1></RestapiCategory1>
+		<RestapiCategory2></RestapiCategory2>
+		<RestapiCategory3></RestapiCategory3>
+		<RestapiNewProducts></RestapiNewProducts>
+		<RestapiProducts></RestapiProducts>
+		<RestapiSearchComputer></RestapiSearchComputer>
+		<RestapiSearchMobile></RestapiSearchMobile>
+		<RestapiSpecialProducts></RestapiSpecialProducts -->>
 	</server>
 			
 	<CapturedStrings>
@@ -23,9 +32,22 @@
 		<stringCaptureConfigUrl>featureLayout</stringCaptureConfigUrl>
 		<stringCaptureEshopUrl>NodeJS WebServices</stringCaptureEshopUrl>
 		<stringCaptureProductsUrl>"LED3DTV4086 40\" Class 3D LED TV w/ 2 Pairs of 3D Glasses"</stringCaptureProductsUrl>
-		<stringCaptureCategoriesUrl>"Television"</stringCaptureCategoriesUrl>
+		<stringCaptureCategoriesUrl>"Gsdjsjkfhweik"</stringCaptureCategoriesUrl>
 		<stringCaptureCategory1Url>"LG Electronics 42PW350 3D Plasma HDTV "</stringCaptureCategory1Url>
 		<stringCaptureCategory2Url>"Apple\n11.6\" MacBook Air Notebook Computer\n"</stringCaptureCategory2Url>
 		<stringCaptureCategory3Url>"Apple iPhone 4 "</stringCaptureCategory3Url>
-	</CapturedStrings>
+	</CapturedStrings> 
+	<!-- <CapturedStrings>
+		<stringCaptureSpecialProductsUrl>satheesh</stringCaptureSpecialProductsUrl>
+		<stringCaptureSearchMobileUrl> satheesh</stringCaptureSearchMobileUrl>
+		<stringCaptureSearchComputerUrl>satheesh</stringCaptureSearchComputerUrl>
+		<stringCaptureProductReviewUrl>satheeh</stringCaptureProductReviewUrl>
+		<stringCaptureConfigUrl>satheesh</stringCaptureConfigUrl>
+		<stringCaptureEshopUrl>NodeJS WebServices</stringCaptureEshopUrl>
+		<stringCaptureProductsUrl>satheesh</stringCaptureProductsUrl>
+		<stringCaptureCategoriesUrl>"Television"</stringCaptureCategoriesUrl>
+		<stringCaptureCategory1Url>satheesh</stringCaptureCategory1Url>
+		<stringCaptureCategory2Url>satheesh</stringCaptureCategory2Url>
+		<stringCaptureCategory3Url>"Apple iPhone 4 "</stringCaptureCategory3Url>
+	</CapturedStrings> -->
 </environment>

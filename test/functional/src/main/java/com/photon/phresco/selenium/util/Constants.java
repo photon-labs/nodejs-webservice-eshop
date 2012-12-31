@@ -30,12 +30,12 @@ public class Constants {
 	/**
 	 * Execute tests on firefox browser
 	 */
-	public static final String BROWSER_FIREFOX = "*firefox";
+	public static final String BROWSER_FIREFOX = "firefox";
 	
 	/**
 	 * Execute tests on googlechrome browser
 	 */
-	public static final String BROWSER_CHROME = "*googlechrome";
+	public static final String BROWSER_CHROME = "googlechrome";
 	
 	/**
 	 * Execute tests on safari browser

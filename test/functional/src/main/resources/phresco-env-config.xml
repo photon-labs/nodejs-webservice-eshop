@@ -18,25 +18,15 @@
   ###
   -->
 <environment>
-
-	<selenium>
-		<selenium.host>localhost</selenium.host>
-		<selenium.port>4444</selenium.port>
-		<speed>300</speed>
-	</selenium>
 	
-	<Browser>firefox</Browser>
-			
-	<Server appliesTo="tech-nodejs-webservice" desc="" name="server">
-		<context>eshop</context>
-		<admin_username/>
-		<deploy_dir/>
-		<additional_context>/</additional_context>
-		<port>2020</port>
-		<admin_password/>
-		<version>0.6.x</version>
-		<type>NodeJS</type>
-		<protocol>http</protocol>
-		<host>172.16.17.180</host>
-	</Server>
+	<!-- <Browser>firefox</Browser> -->
+           <Server>
+               <context>eshop</context>
+               <protocol>http</protocol>
+               <host>172.16.17.180</host>
+               <port>2020</port>
+               <!-- <resolution></resolution> -->
+           </Server>
+               
+         
 </environment>

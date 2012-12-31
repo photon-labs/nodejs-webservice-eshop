@@ -1,4 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <environment>
-
+    
+		<stringCaptureSpecialProductsUrl>"Apple\n13.3\" MacBook Air Notebook Computer\n\n"</stringCaptureSpecialProductsUrl>
+		<stringCaptureSearchMobileUrl> "Motorola DEFY "</stringCaptureSearchMobileUrl>
+		<stringCaptureSearchComputerUrl>"LED3DTV4086 40\" Class 3D LED TV w/ 2 Pairs of 3D Glasses"</stringCaptureSearchComputerUrl>
+		<!-- <stringCaptureProductReviewUrl>comment</stringCaptureProductReviewUrl> -->
+		<stringCaptureConfigUrl>featureLayout</stringCaptureConfigUrl>
+		<stringCaptureEshopUrl>NodeJS WebServices</stringCaptureEshopUrl>
+		<stringCaptureProductsUrl>"LED3DTV4086 40\" Class 3D LED TV w/ 2 Pairs of 3D Glasses"</stringCaptureProductsUrl>
+		<stringCaptureCategoriesUrl>"Television"</stringCaptureCategoriesUrl>
+		<stringCaptureCategory1Url>"LG Electronics 42PW350 3D Plasma HDTV "</stringCaptureCategory1Url>
+		<stringCaptureCategory2Url>"Apple\n11.6\" MacBook Air Notebook Computer\n"</stringCaptureCategory2Url>
+		<stringCaptureCategory3Url>"Apple iPhone 4 "</stringCaptureCategory3Url>
+		
 </environment>
