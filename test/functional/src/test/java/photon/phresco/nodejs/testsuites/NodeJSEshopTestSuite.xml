@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suite name="NodeJSTestSuite" parallel="tests" thread-count="10"
+	verbose="3">
+	<test name="VerifyWelcomePageOngooglechrome1" junit="false"
+		preserve-order="true">
+		<parameter name="browser" value="googlechrome" />
+		<parameter name="platform" value="WINDOWS" />
+		<classes>
+			<class name="photon.phresco.nodejs.testcases.NodejsTestCase" />
+		</classes>
+	</test>
+	<test name="VerifyWelcomePageOnFirefox" junit="false"
+		preserve-order="true">
+		<parameter name="browser" value="firefox" />
+		<parameter name="platform" value="WINDOWS" />
+		<classes>
+			<class name="photon.phresco.nodejs.testcases.NodejsTestCase" />
+		</classes>
+	</test>
+</suite>
+ 

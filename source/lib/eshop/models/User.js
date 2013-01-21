@@ -26,6 +26,5 @@ module.exports = function(sequelize, DataTypes) {
 		password: { type: sequelize.STRING},
 		phone: { type: sequelize.STRING}
     });
-
     return user;
 }

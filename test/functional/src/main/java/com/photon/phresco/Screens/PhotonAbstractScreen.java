@@ -22,19 +22,22 @@ package com.photon.phresco.Screens;
 import java.io.IOException;
 
 import com.photon.phresco.selenium.util.ScreenException;
+import com.photon.phresco.uiconstants.NodeJs;
+import com.photon.phresco.uiconstants.PhrescoUiConstants;
+import com.photon.phresco.uiconstants.UiConstants;
 
-public class PhotonAbstractScreen extends WebDriverAbstractBaseScreen {
+public class PhotonAbstractScreen extends BaseScreen {
 
-	// public PhrescoUiConstantsXml phrescoXml;
+	
 
 	protected PhotonAbstractScreen()throws ScreenException {
 
 	}
 
-	protected PhotonAbstractScreen(String host, int port, String browser,
-			String url, String speed, String contextName) throws IOException,
+	protected PhotonAbstractScreen(String selectedBrowser,String selectedPlatform,
+			String url, String contextName,PhrescoUiConstants PhrescoUiConstants, NodeJs nodejsconst, UiConstants uiconstants) throws IOException,
 			Exception {
-		super(host, port, browser, url, speed, contextName);
+		super(selectedBrowser,selectedPlatform,url,contextName,PhrescoUiConstants, nodejsconst, uiconstants);
 	}
 
 }

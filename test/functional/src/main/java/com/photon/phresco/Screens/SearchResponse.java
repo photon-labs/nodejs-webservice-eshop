@@ -20,6 +20,7 @@
 package com.photon.phresco.Screens;
 
 import java.io.IOException;
+
 import java.io.Serializable;
 import java.lang.reflect.Type;
 import java.util.List;
@@ -31,7 +32,7 @@ import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
 public class SearchResponse implements Serializable {
-	private static final long serialVersionUID = 1L;
+	private final long serialVersionUID = 1L;
 
 	private int id;
 
