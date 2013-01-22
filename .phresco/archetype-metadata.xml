@@ -21,6 +21,8 @@ name="nodejs">
 			<directory>source</directory> 
 			<includes> 
 				<include>server.js</include> 
+				<include>test.bat</include> 
+				<include>test.sh</include> 
 			</includes> 
 		</fileSet>
 		<fileSet filtered="false" encoding="UTF-8"> 
@@ -72,13 +74,7 @@ name="nodejs">
 		<fileSet filtered="false" encoding="UTF-8"> 
 			<directory>source/test</directory> 
 			<includes> 
-				<include>AllTest.js</include> 
-			</includes> 
-		</fileSet>
-		<fileSet filtered="false" encoding="UTF-8"> 
-			<directory>source/test/unit</directory> 
-			<includes> 
-				<include>TestSuite1.js</include> 
+				<include>HelloWorld.js</include> 
 			</includes> 
 		</fileSet>
 		<fileSet filtered="false" encoding="UTF-8"> 
