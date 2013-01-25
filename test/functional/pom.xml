@@ -7,17 +7,7 @@
 	<packaging>jar</packaging>
 	<name>nodejs</name>
 	<url>http://maven.apache.org</url>
-	 <repositories>
-	 <repository> <id>seleniumserver</id> <name>seleniumserver</name> 
-		<url>http://172.16.18.178:8080/nexus/content/groups/public/</url> </repository> 
-		</repositories> 
-	<!-- <repositories>
-		<repository>
-			<id>seleniumserver</id>
-			<name>seleniumserver</name>
-			<url>http://172.16.18.178:8080/nexus/content/repositories/releases/</url>
-		</repository>
-	</repositories> -->
+	 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 	</properties>
@@ -107,13 +97,6 @@
 							</artifactItems>
 						</configuration>
 					</execution>
-				</executions>
-			</plugin>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-dependency-plugin</artifactId>
-				<version>2.3</version>
-				<executions>
 					<execution>
 						<id>copy</id>
 						<phase>validate</phase>
@@ -135,6 +118,7 @@
 					</execution>
 				</executions>
 			</plugin>
+			
 			<plugin>
 				<artifactId>maven-antrun-plugin</artifactId>
 				<executions>
@@ -142,7 +126,7 @@
 						<phase>compile</phase>
 						<configuration>
 							<tasks>
-								<chmod file="${project.basedir}/chromedriver/mac/chromedriver"
+								<chmod file="${project.basedir}/chromedriver/chromedriver"
 									perm="777" />
 							</tasks>
 						</configuration>
