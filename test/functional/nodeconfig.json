@@ -32,7 +32,7 @@
     "proxy": "org.openqa.grid.selenium.proxy.DefaultRemoteProxy",
     "maxSession": 5,
     "port": 5555,
-    "host": ip,
+    "host": "localhost",
     "register": true,
     "registerCycle": 5000,
 	"hubHost": 172.16.26.36,
