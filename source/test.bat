@@ -6,4 +6,4 @@ call mocha -R mocha-lcov-reporter > ../do_not_checkin/target/surefire/coverage.d
 call mocha -R xunit > ../do_not_checkin/target/surefire/TEST-AllTest.xml
 rd /S /Q lib
 mkdir lib
-move lib-orig lib
+mv lib-orig lib
