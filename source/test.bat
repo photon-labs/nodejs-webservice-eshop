@@ -1,10 +1,8 @@
 cd source
 call jscoverage lib lib-cov
-mv lib lib-orig
-mv lib-cov lib
+move lib lib-orig
+move lib-cov lib
 call mocha -R mocha-lcov-reporter > ../do_not_checkin/target/surefire/coverage.dat
 call mocha -R xunit > ../do_not_checkin/target/surefire/TEST-AllTest.xml
 rd /S /Q lib
-mkdir lib
-mv lib-orig/* lib/
-rd /S /Q lib-orig
+move lib-orig lib
