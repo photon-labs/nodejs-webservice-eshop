@@ -20,7 +20,7 @@
 var fs = require('fs');
 var querystring = require('querystring');
 var url = require('url');
-var xml = fs.readFileSync('public/resources/phresco-env-config.xml', 'utf8'); 
+var xml = fs.readFileSync('../.phresco/phresco-env-config.xml', 'utf8'); 
 
 var xml2js = require('xml2js');
 var parser = new xml2js.Parser();
