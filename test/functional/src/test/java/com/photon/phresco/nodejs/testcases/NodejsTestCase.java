@@ -20,7 +20,7 @@
 /*
  * Author by {phresco} QA Automation Team
  */
-package photon.phresco.nodejs.testcases;
+package com.photon.phresco.nodejs.testcases;
 
 import java.io.IOException;
 
