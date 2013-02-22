@@ -27,12 +27,12 @@
 			<artifactId>mod_googlegson_1.7.1</artifactId>
 			<version>1.7.1</version>
 		</dependency>
-		<dependency>
-			<groupId>org.seleniumhq.selenium</groupId>
-			<artifactId>selenium-server-standalone</artifactId>
-			<version>2.29.0</version>
-		</dependency>
-		<dependency>
+	<dependency>
+ <groupId>org.seleniumhq.selenium</groupId>
+ <artifactId>selenium-server-standalone</artifactId>
+ <version>2.30.0</version>
+</dependency>
+		 <dependency>
 			<groupId>com.opera</groupId>
 			<artifactId>operadriver</artifactId>
 			<version>0.16.1</version>
@@ -97,8 +97,7 @@
 							</artifactItems>
 						</configuration>
 					</execution>
-					
-					<execution>
+							<execution>
 						<id>copy</id>
 						<phase>validate</phase>
 						<goals>
@@ -110,7 +109,7 @@
 								<artifactItem>
 									<groupId>org.seleniumhq.selenium</groupId>
 									<artifactId>selenium-server-standalone</artifactId>
-									<version>2.29.0</version>
+									<version>2.30.0</version>
 									<overWrite>false</overWrite>
 									<outputDirectory>${project.basedir}/lib</outputDirectory>
 								</artifactItem>

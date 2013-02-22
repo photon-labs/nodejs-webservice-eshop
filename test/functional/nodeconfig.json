@@ -12,7 +12,7 @@
           "seleniumProtocol": "WebDriver"
         },
         {
-          "browserName": "internet explorer",
+          "browserName": "iexplorer",
           "maxInstances": 5,
           "seleniumProtocol": "WebDriver"
         },

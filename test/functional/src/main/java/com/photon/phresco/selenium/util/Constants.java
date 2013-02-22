@@ -25,7 +25,7 @@ public class Constants {
 	/**
 	 * Execute tests on internet explorer
 	 */
-	public static final String BROWSER_IE = "*iexplore";
+	public static final String BROWSER_IE = "iexplorer";
 
 	/**
 	 * Execute tests on firefox browser
@@ -36,11 +36,15 @@ public class Constants {
 	 * Execute tests on googlechrome browser
 	 */
 	public static final String BROWSER_CHROME = "googlechrome";
+	/**
+	 * Execute tests on opera browser
+	 */
+	public static final String BROWSER_OPERA = "opera";
 	
 	/**
 	 * Execute tests on safari browser
 	 */
-	public static final String BROWSER_SAFARI = "*safari";
+	public static final String BROWSER_SAFARI = "safari";
 
 	public static String DEFAULT_TIMEOUT = "180000";
 
