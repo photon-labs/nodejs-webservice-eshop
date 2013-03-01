@@ -25,7 +25,7 @@
           "browserName": "opera",
           "maxInstances": 5,
           "seleniumProtocol": "WebDriver"
-        }
+        },
 		{
          
           "browserName": "htmlunit",
