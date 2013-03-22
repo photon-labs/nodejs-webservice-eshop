@@ -19,7 +19,7 @@
   ###
   -->
 <project basedir="." default="default" name="jchav-example">
-
+	<property environment="env"/>
 	<target depends="run-jmeter,run-jchav" description="Run Jmeter test plan and generate  reports" name="default"/>
 
 	<target name="init">
@@ -32,7 +32,7 @@
 
 		<property description="The location of the install of JMeter" name="jmeter.install.dir" value="${jmeter.result.dir}"/>
 
-		<property description="The directory containing the jchav jars" name="jchav.libs.dir" value="${jmeter.install.dir}/"/>
+		<property description="The directory containing the jchav jars" name="jchav.libs.dir" value="${env.JMETER_HOME}/"/>
 	
 		<property description="The JMeter test plan script we want to run" name="jmeter.testplan" value="tests/PhrescoFrameWork_TestPlan.jmx"/>
 
@@ -45,17 +45,17 @@
 			
 	<target depends="init" description="Execute the JMeter test plan, recording the results to a file." name="run-jmeter">		
 
-		<echo message="${jmeter.install.dir}"/>
+		<echo message="${env.JMETER_HOME}"/>
 		
 		 <taskdef classname="org.programmerplanet.ant.taskdefs.jmeter.JMeterTask" name="jmeter">
 			<classpath>
-				<fileset dir="${jmeter.install.dir}/extras">
+				<fileset dir="${env.JMETER_HOME}/extras">
 					<include name="*.jar"/>
 				</fileset>
 			</classpath>
 		 </taskdef>
 				
-		<jmeter jmeterhome="${jmeter.install.dir}" resultlog="${jmeter.result.file}" testplan="${jmeter.testplan}">
+		<jmeter jmeterhome="${env.JMETER_HOME}" resultlog="${jmeter.result.file}" testplan="${jmeter.testplan}">
 			<property name="jmeter.save.saveservice.output_format" value="xml"/>
 		</jmeter>
 		
