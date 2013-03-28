@@ -20,7 +20,7 @@
                 <version>2.1.0.4001-SNAPSHOT</version>
                 <extensions>true</extensions>
             </plugin> -->
-           
+
         </plugins>
     </build>
 	<profiles>
@@ -153,6 +153,7 @@
 						  </filesets>
                         </configuration>
                     </plugin>
+                   
 				</plugins>	
             </build>
         </profile>
