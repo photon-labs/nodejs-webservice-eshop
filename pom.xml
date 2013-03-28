@@ -21,22 +21,21 @@
                 <extensions>true</extensions>
             </plugin>
             <plugin>
-                <groupId>org.codehaus.mojo</groupId>
-                <artifactId>license-maven-plugin</artifactId>
-                <version>1.1</version>
-                <configuration>
-                   <verbose>false</verbose>
-                   <processStartTag>###</processStartTag>
-                   <processEndTag>###</processEndTag>
-                  <!-- <sectionDelimiter>" "</sectionDelimiter> -->
-                   <licenseName>apache_v2</licenseName>
-				   <roots>
-				   <root>source</root>
-				   <root>test</root>
-				   </roots>
-                </configuration>
-            </plugin>
-        </plugins>
+<groupId>com.mycila.maven-license-plugin</groupId>
+<artifactId>maven-license-plugin</artifactId>
+<configuration>
+<header>header.txt</header>
+<properties>
+<owner>Photon Infotech Inc.</owner>
+<year>1999-2013</year>
+<name>${project.name}</name>
+</properties>
+<includes>
+<include>**/*.js</include>
+</includes>
+</configuration>
+</plugin>
+			</plugins>
     </build>
 	<profiles>
 		<profile>
