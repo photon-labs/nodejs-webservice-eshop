@@ -11,7 +11,7 @@ var db = require('./lib/eshop/db');
 var serverConfig = utility.getConfigByName(currentEnv, 'Server');
 require('dns').lookup(require('os').hostname(), function (err, address, fam) {
 	var ipaddress = address;
-	if (ipaddress === serverConfig.host || serverConfig.host === "localhost") {
+	if (ipaddress === serverConfig.host || serverConfig.host === "localhost" && serverConfig.protocol === "http") {
 		var app = require('express').createServer();
 		configure.appConfigure(app);
 		services.expose(app, serverConfig);
