@@ -4,7 +4,7 @@
     <groupId>com.photon.phresco</groupId>
     <artifactId>PHR_NodeJSWebService</artifactId>
     <name>PHR_NodeJSWebService</name>
-    <version>3.0.0.15004-SNAPSHOT</version>
+    <version>3.0.0.16001-SNAPSHOT</version>
 	<inceptionYear>1999</inceptionYear>
     <organization>
         <name>Photon Infotech Inc.</name>
@@ -17,7 +17,7 @@
            <!--  <plugin>
                 <groupId>com.photon.phresco.plugins</groupId>
                 <artifactId>nodejs-maven-plugin</artifactId>
-                <version>3.0.0.15004-SNAPSHOT</version>
+                <version>3.0.0.16001-SNAPSHOT</version>
                 <extensions>true</extensions>
             </plugin> -->
 
