@@ -41,10 +41,10 @@
           </execution>
         </executions>
       </plugin>
-      <plugin>
+       <plugin>
         <groupId>com.lazerycode.jmeter</groupId>
         <artifactId>jmeter-maven-plugin</artifactId>
-        <version>1.8.22</version>
+        <version>3.0.0.18001-SNAPSHOT</version>
         <executions>
           <execution>
             <id>jmeter-tests</id>
@@ -56,16 +56,6 @@
         </executions>
         <dependencies>
           <dependency>
-            <groupId>mysql</groupId>
-            <artifactId>mysql-connector-java</artifactId>
-            <version>5.1.9</version>
-          </dependency>
-          <dependency>
-            <groupId>kg.apc</groupId>
-            <artifactId>cmdrunner</artifactId>
-            <version>1.0.1</version>
-          </dependency>
-          <dependency>
             <groupId>kg.apc</groupId>
             <artifactId>JMeterPlugins</artifactId>
             <version>1.0.0</version>
@@ -73,12 +63,30 @@
         </dependencies>
         <configuration>
           <!-- <ignoreResultFailures>true</ignoreResultFailures> -->
+          <testResultsTimestamp>false</testResultsTimestamp>
           <testFilesDirectory>tests/</testFilesDirectory>
           <testFilesIncluded>
             <jMeterTestFile>PhrescoFrameWork_TestPlan.jmx</jMeterTestFile>
           </testFilesIncluded>
           <resultFilesDirectory>results/jmeter/</resultFilesDirectory>
-          <resultFilesName>Sample</resultFilesName>
+          <resultFilesName>
+            <resultName>SaaS-2kTerms</resultName>
+          </resultFilesName>	
+		  
+        <pluginTypes>
+           <types>ThreadsStateOverTime</types>
+           <types>BytesThroughputOverTime</types>
+           <types>HitsPerSecond</types>
+           <types>LatenciesOverTime</types>
+           <types>ResponseCodesPerSecond</types>
+           <types>ResponseTimesDistribution</types>
+           <types>ResponseTimesOverTime</types>
+           <types>ResponseTimesPercentiles</types>
+           <types>ThroughputVsThreads</types>
+           <types>TimesVsThreads</types>
+           <types>TransactionsPerSecond</types>
+        </pluginTypes>
+		  
         </configuration>
       </plugin>
     </plugins>
