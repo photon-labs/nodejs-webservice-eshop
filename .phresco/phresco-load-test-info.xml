@@ -83,7 +83,7 @@
 <groupId>com.photon.phresco.framework</groupId>
 <artifactId>phresco-framework-impl</artifactId>
 <type>jar</type>
-<version>3.0.0.23001-SNAPSHOT</version>
+<version>3.0.0.23002-SNAPSHOT</version>
                             </dependency>
                         </dependencies>
                     </dynamicParameter>
@@ -123,7 +123,7 @@
 <groupId>com.photon.phresco.commons</groupId>
 <artifactId>phresco-commons</artifactId>
 <type>jar</type>
-<version>3.0.0.23001-SNAPSHOT</version>
+<version>3.0.0.23002-SNAPSHOT</version>
                             </dependency>
                         </dependencies>
                     </dynamicParameter>
@@ -148,7 +148,7 @@
 <groupId>com.photon.phresco.framework</groupId>
 <artifactId>phresco-framework-impl</artifactId>
 <type>jar</type>
-<version>3.0.0.23001-SNAPSHOT</version>
+<version>3.0.0.23002-SNAPSHOT</version>
                             </dependency>
                         </dependencies>
                     </dynamicParameter>
@@ -173,7 +173,7 @@
 <groupId>com.photon.phresco.framework</groupId>
 <artifactId>phresco-framework-impl</artifactId>
 <type>jar</type>
-<version>3.0.0.23001-SNAPSHOT</version>
+<version>3.0.0.23002-SNAPSHOT</version>
                             </dependency>
                         </dependencies>
                     </dynamicParameter>
@@ -325,7 +325,7 @@
 <groupId>com.photon.phresco.framework</groupId>
 <artifactId>phresco-framework-impl</artifactId>
 <type>jar</type>
-<version>3.0.0.23001-SNAPSHOT</version>
+<version>3.0.0.23002-SNAPSHOT</version>
                             </dependency>
                         </dependencies>
                     </dynamicParameter>
@@ -366,7 +366,7 @@
 <groupId>com.photon.phresco.commons</groupId>
 <artifactId>phresco-commons</artifactId>
 <type>jar</type>
-<version>3.0.0.23001-SNAPSHOT</version>
+<version>3.0.0.23002-SNAPSHOT</version>
                             </dependency>
                         </dependencies>
                     </dynamicParameter>
