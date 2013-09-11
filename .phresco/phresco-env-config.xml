@@ -10,7 +10,7 @@
             <version>5.5.1</version>
             <port>3306</port>
             <password>root</password>
-            <type>MySQL</type>
+            <type>MYSQL</type>
             <host>localhost</host>
             <dbname>nodejseshopdb</dbname>
             <username>root</username>
