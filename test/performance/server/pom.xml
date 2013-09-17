@@ -44,7 +44,7 @@
        <plugin>
         <groupId>com.lazerycode.jmeter</groupId>
         <artifactId>jmeter-maven-plugin</artifactId>
-        <version>3.0.0.26003-SNAPSHOT</version>
+        <version>3.0.0.26004-SNAPSHOT</version>
         <executions>
           <execution>
             <id>jmeter-tests</id>
