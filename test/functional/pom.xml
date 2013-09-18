@@ -3,7 +3,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>Nodejs_EShopjson</groupId>
 	<artifactId>nodejs</artifactId>
-	<version>3.0.0.26004-SNAPSHOT</version>
+	<version>3.0.0.26005-SNAPSHOT</version>
 	<packaging>jar</packaging>
 	<name>nodejs</name>
 	<url>http://maven.apache.org</url>
