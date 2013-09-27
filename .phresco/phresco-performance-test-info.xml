@@ -48,7 +48,7 @@
                         <value key="database" dependency="dbContextUrls">Database</value>
                     </possibleValues>
                     <multiple>false</multiple>
-                    <value>database</value>
+                    <value>server</value>
                     <sort>false</sort>
                     <show>false</show>
                     <dependency>configurations,testName</dependency>
@@ -94,7 +94,7 @@
                     <description></description>
                     <key>testName</key>
                     <multiple>false</multiple>
-                    <value>NodeJSDatabase</value>
+                    <value>NodeJsESHOPperformaceTest</value>
                     <sort>false</sort>
                     <show>false</show>
                 </parameter>
@@ -162,31 +162,6 @@
                     <value>DB</value>
                     <sort>false</sort>
                     <show>true</show>
-                </parameter>
-                <parameter>
-                    <name>
-                        <value lang="en">Test Result Name</value>
-                    </name>
-                    <type>DynamicParameter</type>
-                    <dynamicParameter>
-                        <class>com.photon.phresco.framework.param.impl.PerformanceTestResultNamesImpl</class>
-                        <dependencies>
-                            <dependency>
-<groupId>com.photon.phresco.framework</groupId>
-<artifactId>phresco-framework-impl</artifactId>
-<type>jar</type>
-<version>3.0.0.27005-SNAPSHOT</version>
-                            </dependency>
-                        </dependencies>
-                    </dynamicParameter>
-                    <required>true</required>
-                    <editable>edit</editable>
-                    <description></description>
-                    <key>testName</key>
-                    <multiple>false</multiple>
-                    <value>NodeJSDatabase</value>
-                    <sort>false</sort>
-                    <show>false</show>
                 </parameter>
                 <parameter>
                     <name>
