@@ -9,7 +9,7 @@
     <Database desc="Database Configuration for Nodejs Eshop application" name="Database Configuration">
             <version>5.5.1</version>
             <port>3306</port>
-            <password>root</password>
+            <password/>
             <type>MYSQL</type>
             <host>localhost</host>
             <dbname>nodejseshopdb</dbname>
