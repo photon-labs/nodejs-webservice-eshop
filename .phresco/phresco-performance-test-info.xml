@@ -94,7 +94,7 @@
                     <description></description>
                     <key>testName</key>
                     <multiple>false</multiple>
-                    <value>NodeJsESHOPperformaceTest</value>
+                    <value>NodeJs</value>
                     <sort>false</sort>
                     <show>false</show>
                 </parameter>
