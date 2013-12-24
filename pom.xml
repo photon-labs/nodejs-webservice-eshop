@@ -163,6 +163,7 @@
         <sonar.language xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">js</sonar.language>
         <sonar.dynamicAnalysis xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">true</sonar.dynamicAnalysis>
         <sonar.exclusions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">**/node_modules/**</sonar.exclusions>
+		<sonar.javascript.testframework>jstestdriver</sonar.javascript.testframework>
 		<sonar.javascript.jstestdriver.reportsfolder>do_not_checkin/target/surefire</sonar.javascript.jstestdriver.reportsfolder>
 		<sonar.javascript.jstestdriver.coveragefile>coverage.dat</sonar.javascript.jstestdriver.coveragefile>  
 		<sonar.dynamicAnalysis xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">reuseReports</sonar.dynamicAnalysis>
