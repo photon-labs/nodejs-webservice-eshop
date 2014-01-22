@@ -44,8 +44,8 @@
                     <editable>true</editable>
                     <key>testAgainst</key>
                     <possibleValues>
-                        <value key="java">java</value>
-                        <value key="js" dependency="showSettings,environmentName">js</value>
+                        <value key="java">Java</value>
+                        <value key="js" dependency="showSettings,environmentName">Js</value>
                     </possibleValues>
                     <multiple>false</multiple>
                     <value></value>
