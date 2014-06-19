@@ -5,7 +5,7 @@
     <artifactId>d7noneas-drupal7</artifactId>
     <packaging>pom</packaging>
     <name>LoadTest-Server</name>
-    <version>dfd</version>
+    <version>3.3.1.14002-SNAPSHOT</version>
     <build>
     <plugins>
       <plugin>
