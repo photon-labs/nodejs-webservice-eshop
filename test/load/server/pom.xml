@@ -2,7 +2,7 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0">
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.photon.phresco.load</groupId>
-    <artifactId>d7noneas-drupal7</artifactId>
+    <artifactId>nodejs-webservice-eshop-load-serv</artifactId>
     <packaging>pom</packaging>
     <name>LoadTest-Server</name>
     <version>3.3.1.16001-SNAPSHOT</version>
@@ -24,7 +24,7 @@
       <plugin>
         <groupId>com.lazerycode.jmeter</groupId>
         <artifactId>jmeter-maven-plugin</artifactId>
-        <version>3.3.1.16001-SNAPSHOT</version>
+        <version>3.3.1.15001-SNAPSHOT</version>
         <executions>
           <execution>
             <id>jmeter-tests</id>

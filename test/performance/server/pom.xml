@@ -21,10 +21,10 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>Photon</groupId>
-	<artifactId>Phresco</artifactId>
+	<artifactId>nodejs-webservice-eshop-perf-serv</artifactId>
 	<packaging>pom</packaging>
 	<name>Performance testing for Nodejs-Webservice-Server</name>
-	<version>1.0</version>
+	<version>3.3.1.16001-SNAPSHOT</version>
 	
 	 <build>
     <plugins>
