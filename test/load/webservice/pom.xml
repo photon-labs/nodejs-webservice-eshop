@@ -5,7 +5,7 @@
     <artifactId>nodejs-webservice-eshop-load-web</artifactId>
     <packaging>pom</packaging>
     <name>LoadTest-Webservice</name>
-    <version>4.0.1001-SNAPSHOT</version>
+    <version>4.0.0.1001-SNAPSHOT</version>
      <build>
     <plugins>
       <plugin>
@@ -24,7 +24,7 @@
       <plugin>
         <groupId>com.lazerycode.jmeter</groupId>
         <artifactId>jmeter-maven-plugin</artifactId>
-        <version>4.0.1001-SNAPSHOT</version>
+        <version>4.0.0.1001-SNAPSHOT</version>
         <executions>
           <execution>
             <id>jmeter-tests</id>

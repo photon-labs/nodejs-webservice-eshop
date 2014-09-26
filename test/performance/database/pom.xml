@@ -24,7 +24,7 @@
 	<artifactId>nodejs-webservice-eshop-perf-db</artifactId>
 	<packaging>pom</packaging>
 	<name>Performance testing for Nodejs-Webservice-Database</name>
-	<version>4.0.1001-SNAPSHOT</version>
+	<version>4.0.0.1001-SNAPSHOT</version>
 	
 	 <build>
     <plugins>
@@ -44,7 +44,7 @@
       <plugin>
         <groupId>com.lazerycode.jmeter</groupId>
         <artifactId>jmeter-maven-plugin</artifactId>
-        <version>4.0.1001-SNAPSHOT</version>
+        <version>4.0.0.1001-SNAPSHOT</version>
         <executions>
           <execution>
             <id>jmeter-tests</id>
